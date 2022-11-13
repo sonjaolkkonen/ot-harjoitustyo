@@ -1,15 +1,8 @@
-# Ohjelmistotekniikka, harjoitustyö
+# Sudoku
 
-## Tehtävät
+Sovellus on klassinen sudoku-peli, jota pelataan 9x9 ruudukossa. Sovellusta on mahdollista käyttää useampi käyttäjä, ja he voivat luoda käyttäjätunnuksen sovellukseen pistetilastojen tallentamista varten. Sovellus myös tarjoaa eri vaikeustasoja.
 
-### Viikko 1
+## Dokumentaatio
 
-[gitlog.txt](laskarit/viikko1/gitlog.txt)
-
-[komentorivi.txt](laskarit/viikko1/komentorivi.txt)
-
-Tämä on tavallista tavallista tekstiä, joka sisältää **lihavoituja** ja *kursivoituja* osuuksia. 
-
-Tehdään muutos loppuun
-
-Uusi muutos
+- [Vaatimusmäärittely](dokumentaatio/vaatimusmaarittely.md)
+- [Työaikakirjanpito](dokumentaatio/tuntikirjanpito.md)
