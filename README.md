@@ -6,3 +6,4 @@ Sovellus on klassinen sudoku-peli, jota pelataan 9x9 ruudukossa. Sovellusta on m
 
 - [Vaatimusmäärittely](dokumentaatio/vaatimusmaarittely.md)
 - [Työaikakirjanpito](dokumentaatio/tuntikirjanpito.md)
+- [Changelog](dokumentaatio/changelog.md)
