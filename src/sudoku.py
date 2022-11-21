@@ -1,5 +1,5 @@
 import pygame
-import requests
+import requests 
 
 class Sudoku:
     def __init__(self):
@@ -7,12 +7,15 @@ class Sudoku:
 
         self.screen = pygame.display.set_mode((550,550))
         pygame.display.set_caption("Sudoku")
-        self.font = pygame.font.SysFont('Arial', 20)
+        self.font = pygame.font.SysFont('Arial', 30)
 
         self.draw_screen()
         self.draw_lines()
 
+        self.new_game()
+
         self.gameloop()
+
 
 
     def gameloop(self):
@@ -43,6 +46,25 @@ class Sudoku:
             #horizontal lines
             pygame.draw.line(self.screen, (0,0,0), (50, 50+50*i), (500, 50+50*i), 2)
         pygame.display.update()
+    
+    #creating new game using API        
+    def new_game(self):
+        response = requests.get("https://sugoku.herokuapp.com/board?difficulty=easy")
+        self.grid = response.json()['board']
+        print(self.grid)
+        self.grid_original = [[self.grid[x][y] for y in range(len(self.grid[0]))] for x in range(len(self.grid))]
+        self.draw_numbers()
+        
+
+    #drawing the numbers into the grid
+    def draw_numbers(self):
+        for i in range(0, len(self.grid[0])):
+            for j in range(0, len(self.grid[0])):
+                if self.grid[i][j]>0 and self.grid[i][j]<10:
+                    self.number = self.font.render(str(self.grid[i][j]), True, (0,0,0))
+                    self.screen.blit(self.number, ((j+1)*50+15, (i+1)*50+10))
+        pygame.display.update()
+
 
 
 
