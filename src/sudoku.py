@@ -1,6 +1,7 @@
 import pygame
 import requests 
 
+
 class Sudoku:
     def __init__(self):
         pygame.init()
@@ -51,7 +52,6 @@ class Sudoku:
     def new_game(self):
         response = requests.get("https://sugoku.herokuapp.com/board?difficulty=easy")
         self.grid = response.json()['board']
-        print(self.grid)
         self.grid_original = [[self.grid[x][y] for y in range(len(self.grid[0]))] for x in range(len(self.grid))]
         self.draw_numbers()
         
