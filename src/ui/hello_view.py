@@ -23,13 +23,13 @@ class HelloView:
             text="Jatka kirjautumatta",
             command=self._handle_menu
         )
-
+        #Lisätään toiminto myöhemmin
         button_sign_in = ttk.Button(
             master=self._frame,
             text="Kirjaudu sisään",
             command=None
         )
-
+        #Lisätään toiminto myöhemmin
         button_register = ttk.Button(
             master=self._frame,
             text="Rekisteröidy",

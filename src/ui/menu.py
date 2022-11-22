@@ -18,12 +18,14 @@ class Menu:
         self._frame = ttk.Frame(master=self._root)
         label = ttk.Label(master=self._frame, text="Aloitusvalikko")
 
+        #Lisätään toiminto myöhemmin
         button_new_game = ttk.Button(
             master=self._frame,
             text="Aloita uusi peli",
             command=None
         )
-
+        
+        #Lisätään toiminto myöhemmin
         button_statistics = ttk.Button(
             master=self._frame,
             text="Pelitilastot",
