@@ -1,5 +1,6 @@
 from tkinter import ttk, constants
 
+
 class Menu:
     def __init__(self, root, handle_hello):
         self._root = root
@@ -13,19 +14,19 @@ class Menu:
 
     def destroy(self):
         self._frame.destroy()
-    
+
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
         label = ttk.Label(master=self._frame, text="Aloitusvalikko")
 
-        #Lisätään toiminto myöhemmin
+        # Lisätään toiminto myöhemmin
         button_new_game = ttk.Button(
             master=self._frame,
             text="Aloita uusi peli",
             command=None
         )
-        
-        #Lisätään toiminto myöhemmin
+
+        # Lisätään toiminto myöhemmin
         button_statistics = ttk.Button(
             master=self._frame,
             text="Pelitilastot",
@@ -37,7 +38,6 @@ class Menu:
             text="Takaisin alkuun",
             command=self._handle_hello
         )
-
 
         label.grid(row=0, column=0)
         button_new_game.grid(row=1, column=0)

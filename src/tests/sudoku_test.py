@@ -1,7 +1,6 @@
-import pygame
-import requests
 import unittest
 from sudoku import Sudoku
+
 
 class TestSudoku(unittest.TestCase):
     def setUp(self):
