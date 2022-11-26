@@ -1,7 +1,5 @@
-import sys
 import pygame
-import requests
-
+from game_loop import GameLoop
 
 
 class Sudoku:
@@ -17,19 +15,15 @@ class Sudoku:
         self.draw_screen()
         self.draw_lines()
 
-        self.new_game()
 
-        self.gameloop()
-
-    def gameloop(self):
-        while True:
-            self.events()
-
-    # going through the game events
-    def events(self):
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
+        screen = self.screen
+        position = pygame.mouse.get_pos()
+        font = self.font
+        number = self.number
+        grid = self.grid
+        game_loop = GameLoop(position, screen, font, number, grid)
+        game_loop.new_game()
+        game_loop.handle_events()
 
     # drawing the screen
     def draw_screen(self):
@@ -52,26 +46,6 @@ class Sudoku:
             # horizontal lines
             pygame.draw.line(self.screen, (0, 0, 0),
                              (50, 50+50*i), (500, 50+50*i), 2)
-        pygame.display.update()
-
-    # creating new game using API
-    def new_game(self):
-        response = requests.get(
-            "https://sugoku.herokuapp.com/board?difficulty=easy", timeout=0.5)
-        self.grid = response.json()['board']
-        self.grid_original = [[self.grid[x][y] for y in range(
-            len(self.grid[0]))] for x in range(len(self.grid))]
-        self.draw_numbers()
-
-    # drawing the numbers into the grid
-
-    def draw_numbers(self):
-        for i in range(0, len(self.grid[0])):
-            for j in range(0, len(self.grid[0])):
-                if self.grid[i][j] > 0 and self.grid[i][j] < 10:
-                    self.number = self.font.render(
-                        str(self.grid[i][j]), True, (0, 0, 0))
-                    self.screen.blit(self.number, ((j+1)*50+15, (i+1)*50+10))
         pygame.display.update()
 
 
