@@ -5,5 +5,5 @@
 - Lisätty toiminnallisuus, joka mahdollistaa käyttäjän siirtymisen Menu- ja HelloView-näkymien välillä painamalla näkymien painikkeita
 
 ## Viikko 4
-- Eriytetty Gameloop-luokka Sudoku-luokasta
+- Eriytetty GameLoop-luokka Sudoku-luokasta
 - Lisätty toiminnallisuus, joka mahdollistaa numeroiden syöttämisen peliruudukkoon
