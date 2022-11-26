@@ -7,3 +7,5 @@
 | 20.11. | 4 | Sudokupelin koodin aloittaminen |
 | 21.11. | 3 | Uuden pelin luominen ja numeoroiden esitäyttö uuteen peliin |
 | 22.11. | 3 | UI, Menu & HelloView -luokkien luonti. Lisätty toiminnallisuus, joka mahdollistaa käyttäjän siirtymisen Menu- ja HelloView-näkymien välillä painamalla näkymien painikkeita |
+| 25.11 | 4 | Asennettu pylint ja korjattu koodin laatua, eriytetty Gameloop-luokka Sudoku-luokasta |
+| 26.11 | 3 | Lisätty GameLoop-luokkaan toiminnallisuus, joka mahdollistaa pelaajan lisätä numeroita Sudoku-ruudukkoon |
