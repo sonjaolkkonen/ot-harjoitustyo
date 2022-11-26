@@ -11,14 +11,14 @@ Sovelluksella on ainoastaan yksi käyttäjärooli eli normaali käyttäjä.
 
 ### Sovelluksen avaaminen
 
-- Kun käyttäjä avaa sovelluksen, käyttäjä voi luoda käyttäjätunnuksen, kirjautua sisään jo olemassaolevalla käyttäjätunnuksella tai jatkaa luomatta käyttäjätunnusta. Jotta pelaajan pisteet tallentuvat pistetilastoihin, tulee hänen luoda käyttäjätunnus. Mikäli pelaaja ei luo käyttäjätunnusta, siirtyy hän suoraan aloitusvalikkoon. 
+- Kun käyttäjä avaa sovelluksen, käyttäjä voi luoda käyttäjätunnuksen, kirjautua sisään jo olemassaolevalla käyttäjätunnuksella tai jatkaa luomatta käyttäjätunnusta. Jotta pelaajan pisteet tallentuvat pistetilastoihin, tulee hänen luoda käyttäjätunnus. Mikäli pelaaja ei luo käyttäjätunnusta, siirtyy hän suoraan aloitusvalikkoon. (TEHTY)
 - Mikäli käyttäjä valitsee käyttäjätunnuksen luomisen, tulee hänen luoda käyttäjätunnus, joka ei ole vielä muilla käytössä, ja joka on 3-10 merkkiä pitkä. 
 - Käyttäjätunnuksen luomisen jälkeen käyttäjä voi kirjautua sovellukseen. Mikäli käyttäjälle oli jo luotuna käyttäjätunnus, siirtyy hän tähän kohtaan. Kirjautuminen onnistuu syöttämällä käyttäjätunnus ja salasana kirjautumislomakkeelle. Jos käyttäjää ei ole olemassa tai salasana on virheellinen, herjaa järjestelmä tästä.
 - Kirjautumisen jälkeen käyttäjä siirtyy aloitusvalikkoon. 
 
 ### Aloitusvalikko
 
-- Aloitusvalikossa käyttäjä voi valita haluaako aloittaa uuden pelin vai katsoa pistetilastoja. 
+- Aloitusvalikossa käyttäjä voi valita haluaako aloittaa uuden pelin vai katsoa pistetilastoja. (TEHTY näkymä) 
 - Mikäli käyttäjä on kirjautuneena sisään, voi hän aloitusvalikossa kirjautua ulos sovelluksesta.
 
 ### Pistetilastot
@@ -33,9 +33,9 @@ Sovelluksella on ainoastaan yksi käyttäjärooli eli normaali käyttäjä.
 
 ### Pelinäkymä
 
-- Sovellus luo käyttäjälle pelattavaksi hänen antamansa vaikeustason mukaisen sudokun. Valmiiksi annettujen numeroiden määrä riippuu vaikeustasosta. 
+- Sovellus luo käyttäjälle pelattavaksi hänen antamansa vaikeustason mukaisen sudokun. Valmiiksi annettujen numeroiden määrä riippuu vaikeustasosta. (TEHTY) 
 - Pelin aloittaminen käynnistää myös ajanoton, ja pelaamiseen kulunut aika on näkyvillä ruudulla koko pelin ajan. Ajanottoa käytetään pistetilastojen luomiseen, mitä nopeammin käyttäjä ratkaisee pelin, sitä enemmän hän saa pisteitä.
-- Pelaaja syöttää numeroita ruudukkoon, kunnes kaikissa ruuduissa on numero. 
+- Pelaaja syöttää numeroita ruudukkoon, kunnes kaikissa ruuduissa on numero. (TEHTY)
 - Kun pelaaja on saanut ratkaistua ruudukon oikein, ilmoittaa sovellus tästä sekä ajanotto pysäytetään. Pelaaja näkee saamansa pisteet, ja ne talletetaan pistetaulukkoon. 
 - Pelaaja voi myös lopettaa sudokun kesken ja palata aloitusvalikkoon tai aloittaa uuden pelin suoraan pelinäkymästä. 
 
