@@ -1,45 +1,41 @@
-from tkinter import ttk, constants
-
+import sys
+import pygame
+from button import Button
 
 class Menu:
-    def __init__(self, root, handle_hello):
-        self._root = root
-        self._handle_hello = handle_hello
-        self._frame = None
+    def __init__(self):
+        pygame.init()
 
-        self._initialize()
+        self.screen = pygame.display.set_mode((550, 550))
+        pygame.display.set_caption("Aloitusvalikko")
+        self.font = pygame.font.SysFont('Arial', 30)
 
-    def pack(self):
-        self._frame.pack(fill=constants.X)
+        self.loop()
 
-    def destroy(self):
-        self._frame.destroy()
+    def loop(self):
+        button_image = pygame.image.load("button.png")
+        button_image = pygame.transform.scale(button_image, (250,100))
+        new_game_button = Button(button_image, 275, 200, "Aloita uusi peli")
+        statistics_button =Button(button_image, 275, 300, "Pelitilastot")
 
-    def _initialize(self):
-        self._frame = ttk.Frame(master=self._root)
-        label = ttk.Label(master=self._frame, text="Aloitusvalikko")
+        while True:
+            self.screen.fill((250,250,250))
+            
+            for button in [new_game_button, statistics_button]:
+                button.update()
+                button.change_color(pygame.mouse.get_pos())
+    
 
-        # Lisätään toiminto myöhemmin
-        button_new_game = ttk.Button(
-            master=self._frame,
-            text="Aloita uusi peli",
-            command=None
-        )
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    new_game_button.new_game_button_is_pressed(pygame.mouse.get_pos())
+                    statistics_button.statistics_button_is_pressed(pygame.mouse.get_pos())
+ 
+               
+            pygame.display.update()
 
-        # Lisätään toiminto myöhemmin
-        button_statistics = ttk.Button(
-            master=self._frame,
-            text="Pelitilastot",
-            command=None
-        )
-
-        button_back = ttk.Button(
-            master=self._frame,
-            text="Takaisin alkuun",
-            command=self._handle_hello
-        )
-
-        label.grid(row=0, column=0)
-        button_new_game.grid(row=1, column=0)
-        button_statistics.grid(row=2, column=0)
-        button_back.grid(row=3, column=0)
+if __name__ == "__main__":
+    Menu()
