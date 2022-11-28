@@ -7,5 +7,5 @@
 ## Viikko 4
 - Eriytetty GameLoop-luokka Sudoku-luokasta
 - Lisätty toiminnallisuus, joka mahdollistaa numeroiden syöttämisen peliruudukkoon
-- Poistettu entinen Ui-luokka, joka oli tehty Tkinterillä ja tilalle luotu Pygamella luotu menu- ja button-luokat.
-- Käyttäjä pystyy aloittamaan aloitusvalikosta uuden pelin. 
+- Poistettu entinen Ui-luokka, joka oli tehty Tkinterillä ja tilalle luotu Pygamella tehdyt menu- ja button-luokat
+- Lisätty toiminnallisuus, joka mahdollistaa uuden pelin aloittamisen aloitusvalikosta
