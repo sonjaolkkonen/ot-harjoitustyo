@@ -9,5 +9,6 @@
 | 22.11. | 3 | UI, Menu & HelloView -luokkien luonti. Lisätty toiminnallisuus, joka mahdollistaa käyttäjän siirtymisen Menu- ja HelloView-näkymien välillä painamalla näkymien painikkeita |
 | 25.11 | 4 | Asennettu pylint ja korjattu koodin laatua, eriytetty GameLoop-luokka Sudoku-luokasta |
 | 26.11 | 3 | Lisätty GameLoop-luokkaan toiminnallisuus, joka mahdollistaa pelaajan lisätä numeroita Sudoku-ruudukkoon |
-| 27.11. | 3 | Tutustuttu pygamella tehtyyn gui:hin, yritetty siirtää ui tkinteristä pygameen (ei vielä onnistunut) |
+| 27.11. | 3 | Tutustuttu pygamella tehtyyn gui:hin |
 | 28.11. | 1 | Alustavat luokka- ja pakkauskaaviot | 
+| 28.11. | 3 | Poistettu Tkinterillä tehty Ui ja lisätty tilalle Pygamella tehty aloitusvalikko, josta pelaaja voi aloittaa uuden pelin |
