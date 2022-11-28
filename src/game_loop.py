@@ -17,7 +17,7 @@ class GameLoop:
     # creating new game using API
     def new_game(self):
         response = requests.get(
-            "https://sugoku.herokuapp.com/board?difficulty=easy", timeout=1)
+            "https://sugoku.herokuapp.com/board?difficulty=easy")
         self.grid = response.json()['board']
         self.grid_original = [[self.grid[x][y] for y in range(
             len(self.grid[0]))] for x in range(len(self.grid))]

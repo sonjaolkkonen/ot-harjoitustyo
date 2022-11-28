@@ -13,7 +13,7 @@ class Menu:
         self.loop()
 
     def loop(self):
-        button_image = pygame.image.load("button.png")
+        button_image = pygame.image.load("src/button.png")
         button_image = pygame.transform.scale(button_image, (250,100))
         new_game_button = Button(button_image, 275, 200, "Aloita uusi peli")
         statistics_button =Button(button_image, 275, 300, "Pelitilastot")
