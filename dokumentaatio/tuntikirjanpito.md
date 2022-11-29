@@ -12,3 +12,4 @@
 | 27.11. | 3 | Tutustuttu pygamella tehtyyn gui:hin |
 | 28.11. | 1 | Alustavat luokka- ja pakkauskaaviot | 
 | 28.11. | 3 | Poistettu Tkinterillä tehty Ui ja lisätty tilalle Pygamella tehty aloitusvalikko, josta pelaaja voi aloittaa uuden pelin |
+| 29.11. | 0.5 | Päivitetty README.md-tiedosto | 
