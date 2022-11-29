@@ -23,7 +23,6 @@ poetry run invoke start
 ```  
 ## Komentorivitoiminnot
 ### Ohjelman suorittaminen
-
 Ohjelman pystyy suorittamaan komennolla: 
 ```
 poetry run invoke start
