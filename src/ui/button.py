@@ -25,17 +25,17 @@ class Button:
         screen.blit(self.text, self.text_rect)
 
     def new_game_button_is_pressed(self, position):
-        from menu import Ui
+        from ui.ui import Ui
         if position[0] in range(self.rect.left, self.rect.right) and position[1] in range(self.rect.top, self.rect.bottom):
             Ui.choose_level(self)
     
     def statistics_button_is_pressed(self, position):
-        from menu import Ui
+        from ui.ui import Ui
         if position[0] in range(self.rect.left, self.rect.right) and position[1] in range(self.rect.top, self.rect.bottom):
             Ui.statistics_screen(self)
 
     def menu_button_is_pressed(self, position):
-        from menu import Ui
+        from ui.ui import Ui
         if position[0] in range(self.rect.left, self.rect.right) and position[1] in range(self.rect.top, self.rect.bottom):
             Ui()
 
@@ -48,7 +48,7 @@ class Button:
             Sudoku("medium")
 
     def hard_button_is_pressed(self, position):
-        from menu import Ui
+        from ui.ui import Ui
         if position[0] in range(self.rect.left, self.rect.right) and position[1] in range(self.rect.top, self.rect.bottom):
             Sudoku("hard")
 

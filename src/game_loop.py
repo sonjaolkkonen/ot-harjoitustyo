@@ -156,7 +156,7 @@ class GameLoop():
         pygame.display.update()
 
     def insert(self, screen, position):
-        from ui.menu import Ui
+        from ui.ui import Ui
         self.screen = screen
         self.position = position
         self.buffer = 5
