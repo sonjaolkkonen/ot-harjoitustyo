@@ -9,6 +9,8 @@ Sovellus on klassinen sudoku-peli, jota pelataan 9x9 ruudukossa. Sovellusta on m
 - [Työaikakirjanpito](dokumentaatio/tuntikirjanpito.md)
 - [Changelog](dokumentaatio/changelog.md)
 
+## Releaset
+[Viikko 5](https://github.com/sonjaolkkonen/ot-harjoitustyo/releases/tag/viikko5)
 
 ## Asennus
 1. Asenna riippuvuudet komennolla:
