@@ -18,25 +18,25 @@ Sovelluksella on ainoastaan yksi käyttäjärooli eli normaali käyttäjä.
 
 ### Aloitusvalikko
 
-- Aloitusvalikossa käyttäjä voi valita haluaako aloittaa uuden pelin vai katsoa pistetilastoja. (TEHTY näkymä) 
+- Aloitusvalikossa käyttäjä voi valita haluaako aloittaa uuden pelin vai katsoa pistetilastoja. **TEHTY**
 - Mikäli käyttäjä on kirjautuneena sisään, voi hän aloitusvalikossa kirjautua ulos sovelluksesta.
 
 ### Pistetilastot
 
-- Jos käyttäjä valitsee pistelistan, näytetään käyttäjälle listana top10 eniten pisteitä saanutta pelaajaa per vaikeustaso.
+- Jos käyttäjä valitsee pistelistan, näytetään käyttäjälle listana top10 eniten pisteitä saanutta pelaajaa per vaikeustaso. **TEHTY NÄKYMÄ ILMAN TILASTOJA**
 - Käyttäjä näkee pistetilastosta myös omien peliensä tilastoja. Nämä tiedot näkyvät myös kirjautumattomille käyttäjille. 
-- Pistetilastosta voi palata takaisin aloitusvalikkoon.
+- Pistetilastosta voi palata takaisin aloitusvalikkoon. **TEHTY**
 
 ### Uuden pelin aloittaminen
 
-- Uutta peliä aloittaessa käyttäjä voi valita pelin vaikeustason: helppo, keskivaikea, vaikea. 
+- Uutta peliä aloittaessa käyttäjä voi valita pelin vaikeustason: helppo, keskivaikea, vaikea. **TEHTY**
 
 ### Pelinäkymä
 
-- Sovellus luo käyttäjälle pelattavaksi hänen antamansa vaikeustason mukaisen sudokun. Valmiiksi annettujen numeroiden määrä riippuu vaikeustasosta. (TEHTY) 
+- Sovellus luo käyttäjälle pelattavaksi hänen antamansa vaikeustason mukaisen sudokun. Valmiiksi annettujen numeroiden määrä riippuu vaikeustasosta. **TEHTY**
 - Pelin aloittaminen käynnistää myös ajanoton, ja pelaamiseen kulunut aika on näkyvillä ruudulla koko pelin ajan. Ajanottoa käytetään pistetilastojen luomiseen, mitä nopeammin käyttäjä ratkaisee pelin, sitä enemmän hän saa pisteitä.
-- Pelaaja syöttää numeroita ruudukkoon, kunnes kaikissa ruuduissa on numero. (TEHTY)
-- Kun pelaaja on saanut ratkaistua ruudukon oikein, ilmoittaa sovellus tästä sekä ajanotto pysäytetään. Pelaaja näkee saamansa pisteet, ja ne talletetaan pistetaulukkoon. 
+- Pelaaja syöttää numeroita ruudukkoon, kunnes kaikissa ruuduissa on numero. **TEHTY**
+- Kun pelaaja on saanut ratkaistua ruudukon oikein, ilmoittaa sovellus tästä sekä ajanotto pysäytetään. Pelaaja näkee saamansa pisteet, ja ne talletetaan pistetaulukkoon. **TEHTY ILMAN AJANOTTOA JA PISTENÄKYMÄÄ**
 - Pelaaja voi myös lopettaa sudokun kesken ja palata aloitusvalikkoon tai aloittaa uuden pelin suoraan pelinäkymästä. 
 
 ## Jatkokehitysideat
