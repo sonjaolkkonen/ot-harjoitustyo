@@ -2,6 +2,7 @@ import sys
 sys.path.insert(0, '/home/olkkonso/ot-harjoitustyo/src')
 import pygame
 from sudoku import Sudoku
+from game_loop import GameLoop
 
 pygame.init()
 
@@ -24,12 +25,32 @@ class Button:
         screen.blit(self.text, self.text_rect)
 
     def new_game_button_is_pressed(self, position):
+        from menu import Ui
         if position[0] in range(self.rect.left, self.rect.right) and position[1] in range(self.rect.top, self.rect.bottom):
-            Sudoku()
+            Ui.choose_level(self)
     
     def statistics_button_is_pressed(self, position):
+        from menu import Ui
         if position[0] in range(self.rect.left, self.rect.right) and position[1] in range(self.rect.top, self.rect.bottom):
-            print("testi2")
+            Ui.statistics_screen(self)
+
+    def menu_button_is_pressed(self, position):
+        from menu import Ui
+        if position[0] in range(self.rect.left, self.rect.right) and position[1] in range(self.rect.top, self.rect.bottom):
+            Ui()
+
+    def easy_button_is_pressed(self, position):
+        if position[0] in range(self.rect.left, self.rect.right) and position[1] in range(self.rect.top, self.rect.bottom):
+            Sudoku("easy")
+
+    def medium_button_is_pressed(self, position):
+        if position[0] in range(self.rect.left, self.rect.right) and position[1] in range(self.rect.top, self.rect.bottom):
+            Sudoku("medium")
+
+    def hard_button_is_pressed(self, position):
+        from menu import Ui
+        if position[0] in range(self.rect.left, self.rect.right) and position[1] in range(self.rect.top, self.rect.bottom):
+            Sudoku("hard")
 
     def change_color(self, position):
         if position[0] in range(self.rect.left, self.rect.right) and position[1] in range(self.rect.top, self.rect.bottom):
