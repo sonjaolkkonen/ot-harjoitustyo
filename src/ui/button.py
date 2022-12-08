@@ -1,8 +1,7 @@
 import sys
 sys.path.insert(0, '/home/olkkonso/ot-harjoitustyo/src')
 import pygame
-from sudoku import Sudoku
-from game_loop import GameLoop
+from services.game_loop import GameLoop
 
 pygame.init()
 
@@ -19,6 +18,8 @@ class Button:
         self.rect = self.image.get_rect(center=(self.x_pos, self.y_pos))
         self.text = main_font.render(self.content, True, (255,255,255))
         self.text_rect = self.text.get_rect(center=(self.x_pos, self.y_pos))
+        self.number = None
+        self.grid = None
 
     def update(self):
         screen.blit(self.image, self.rect)
@@ -40,17 +41,28 @@ class Button:
             Ui()
 
     def easy_button_is_pressed(self, position):
+        font = pygame.font.SysFont('Arial', 30)
+        number = self.number
+        grid = self.grid
+        level = "easy"
         if position[0] in range(self.rect.left, self.rect.right) and position[1] in range(self.rect.top, self.rect.bottom):
-            Sudoku("easy")
+            GameLoop(position, screen, font, number, grid, level)
 
     def medium_button_is_pressed(self, position):
+        font = pygame.font.SysFont('Arial', 30)
+        number = self.number
+        grid = self.grid
+        level = "medium"
         if position[0] in range(self.rect.left, self.rect.right) and position[1] in range(self.rect.top, self.rect.bottom):
-            Sudoku("medium")
+            GameLoop(position, screen, font, number, grid, level)
 
     def hard_button_is_pressed(self, position):
-        from ui.ui import Ui
+        font = pygame.font.SysFont('Arial', 30)
+        number = self.number
+        grid = self.grid
+        level = "hard"
         if position[0] in range(self.rect.left, self.rect.right) and position[1] in range(self.rect.top, self.rect.bottom):
-            Sudoku("hard")
+            GameLoop(position, screen, font, number, grid, level)
 
     def change_color(self, position):
         if position[0] in range(self.rect.left, self.rect.right) and position[1] in range(self.rect.top, self.rect.bottom):
