@@ -12,9 +12,41 @@ class Ui:
         pygame.display.set_caption("Aloitusvalikko")
         self.font = pygame.font.SysFont('Arial', 30)
 
+        self.position = None
+        self.number = None
+        self.grid = None
+
         self.menu()
 
+    def play_screen(self, level):
+        self.screen = pygame.display.set_mode((850,550))
+        pygame.display.set_caption("Sudoku")
+        self.font = pygame.font.SysFont('Arial', 30)
+
+        position = self.position
+        screen = self.screen
+        font = self.font
+        number = self.number
+        grid = self.grid
+
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
+            if level == "easy":
+                GameLoop(position, screen, font, number, grid, level="easy")
+            if level == "medium":
+                GameLoop(position, screen, font, number, grid, level="medium")
+            if level == "hard":
+                GameLoop(position, screen, font, number, grid, level="hard")
+            
+            pygame.display.update()
+
+
+
     def choose_level(self):
+
         self.screen = pygame.display.set_mode((550, 550))
         pygame.display.set_caption("Vaikeustaso")
         self.font = pygame.font.SysFont('Arial', 30)
@@ -43,10 +75,14 @@ class Ui:
                     pygame.quit()
                     sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
-                    easy_button.is_pressed(pygame.mouse.get_pos())
-                    medium_button.medium_button_is_pressed(
-                        pygame.mouse.get_pos())
-                    hard_button.hard_button_is_pressed(pygame.mouse.get_pos())
+                    if easy_button.is_pressed(pygame.mouse.get_pos()):
+                        Ui.play_screen(self, level="easy")
+                    if medium_button.is_pressed(
+                        pygame.mouse.get_pos()):
+                        Ui.play_screen(self, level="medium")
+                    if hard_button.is_pressed(pygame.mouse.get_pos()):
+                        Ui.play_screen(self, level="hard")
+
 
             pygame.display.update()
 

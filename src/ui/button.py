@@ -26,34 +26,9 @@ class Button:
         screen.blit(self.text, self.text_rect)
 
     def is_pressed(self, position):
-        from ui.ui import Ui
         if position[0] in range(self.rect.left, self.rect.right) and position[1] in range(self.rect.top, self.rect.bottom):
             return True
         return False
-   
-    def easy_button_is_pressed(self, position):
-        font = pygame.font.SysFont('Arial', 30)
-        number = self.number
-        grid = self.grid
-        level = "easy"
-        if position[0] in range(self.rect.left, self.rect.right) and position[1] in range(self.rect.top, self.rect.bottom):
-            GameLoop(position, screen, font, number, grid, level)
-
-    def medium_button_is_pressed(self, position):
-        font = pygame.font.SysFont('Arial', 30)
-        number = self.number
-        grid = self.grid
-        level = "medium"
-        if position[0] in range(self.rect.left, self.rect.right) and position[1] in range(self.rect.top, self.rect.bottom):
-            GameLoop(position, screen, font, number, grid, level)
-
-    def hard_button_is_pressed(self, position):
-        font = pygame.font.SysFont('Arial', 30)
-        number = self.number
-        grid = self.grid
-        level = "hard"
-        if position[0] in range(self.rect.left, self.rect.right) and position[1] in range(self.rect.top, self.rect.bottom):
-            GameLoop(position, screen, font, number, grid, level)
 
     def change_color(self, position):
         if position[0] in range(self.rect.left, self.rect.right) and position[1] in range(self.rect.top, self.rect.bottom):
