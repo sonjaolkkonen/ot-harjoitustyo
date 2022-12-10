@@ -25,21 +25,12 @@ class Button:
         screen.blit(self.image, self.rect)
         screen.blit(self.text, self.text_rect)
 
-    def new_game_button_is_pressed(self, position):
+    def is_pressed(self, position):
         from ui.ui import Ui
         if position[0] in range(self.rect.left, self.rect.right) and position[1] in range(self.rect.top, self.rect.bottom):
-            Ui.choose_level(self)
-    
-    def statistics_button_is_pressed(self, position):
-        from ui.ui import Ui
-        if position[0] in range(self.rect.left, self.rect.right) and position[1] in range(self.rect.top, self.rect.bottom):
-            Ui.statistics_screen(self)
-
-    def menu_button_is_pressed(self, position):
-        from ui.ui import Ui
-        if position[0] in range(self.rect.left, self.rect.right) and position[1] in range(self.rect.top, self.rect.bottom):
-            Ui()
-
+            return True
+        return False
+   
     def easy_button_is_pressed(self, position):
         font = pygame.font.SysFont('Arial', 30)
         number = self.number

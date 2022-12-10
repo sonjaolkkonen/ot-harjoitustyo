@@ -1,6 +1,7 @@
 import sys
 import pygame
 from ui.button import Button
+from services.game_loop import GameLoop
 
 
 class Ui:
@@ -34,15 +35,15 @@ class Ui:
             hard_button = Button(button_image, 275, 400, "Vaikea")
 
             for button in [easy_button, medium_button, hard_button]:
-                button.update()
                 button.change_color(pygame.mouse.get_pos())
+                button.update()
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
-                    easy_button.easy_button_is_pressed(pygame.mouse.get_pos())
+                    easy_button.is_pressed(pygame.mouse.get_pos())
                     medium_button.medium_button_is_pressed(
                         pygame.mouse.get_pos())
                     hard_button.hard_button_is_pressed(pygame.mouse.get_pos())
@@ -59,18 +60,20 @@ class Ui:
             self.screen.fill((250, 250, 250))
 
             for button in [new_game_button, statistics_button]:
-                button.update()
                 button.change_color(pygame.mouse.get_pos())
+                button.update()
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
-                    new_game_button.new_game_button_is_pressed(
-                        pygame.mouse.get_pos())
-                    statistics_button.statistics_button_is_pressed(
-                        pygame.mouse.get_pos())
+                    if new_game_button.is_pressed(
+                        pygame.mouse.get_pos()):
+                        Ui.choose_level(self)
+                    if statistics_button.is_pressed(
+                        pygame.mouse.get_pos()):
+                        Ui.statistics_screen(self)
 
             pygame.display.update()
 
@@ -93,17 +96,19 @@ class Ui:
             menu_button = Button(button_image, 275, 300, "Palaa alkuun")
 
             for button in [new_game_button, menu_button]:
-                button.update()
                 button.change_color(pygame.mouse.get_pos())
+                button.update()
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
-                    new_game_button.new_game_button_is_pressed(
-                        pygame.mouse.get_pos())
-                    menu_button.menu_button_is_pressed(pygame.mouse.get_pos())
+                    if new_game_button.is_pressed(
+                        pygame.mouse.get_pos()):
+                        Ui.choose_level(self)
+                    if menu_button.is_pressed(pygame.mouse.get_pos()):
+                        Ui()
 
             pygame.display.update()
 
@@ -126,14 +131,15 @@ class Ui:
             button_image = pygame.transform.scale(button_image, (250, 100))
             menu_button = Button(button_image, 275, 200, "Palaa alkuun")
 
-            menu_button.update()
             menu_button.change_color(pygame.mouse.get_pos())
+            menu_button.update()
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
-                    menu_button.menu_button_is_pressed(pygame.mouse.get_pos())
+                    if menu_button.is_pressed(pygame.mouse.get_pos()):
+                        Ui()
 
             pygame.display.update()

@@ -5,7 +5,7 @@ class Sudoku:
         pass
 
     def play(self):
-        from ui.ui import Ui
+        from ui.ui import Ui    
 
 
         pygame.init()
