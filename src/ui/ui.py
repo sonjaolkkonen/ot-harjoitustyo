@@ -2,6 +2,8 @@ import sys
 import pygame
 from ui.button import Button
 from services.game_loop import GameLoop
+from ui.register_view import RegisterView
+from ui.login_view import LoginView
 
 
 class Ui:
@@ -16,10 +18,45 @@ class Ui:
         self.number = None
         self.grid = None
 
-        self.menu()
+        self.main_screen()
+
+    def main_screen(self):
+
+        self.screen = pygame.display.set_mode((550, 550))
+        pygame.display.set_caption("Tervetuloa!")
+        self.font = pygame.font.SysFont('Arial', 30)
+
+        while True:
+            self.screen.fill((250, 250, 250))
+
+            button_image = pygame.image.load("/home/olkkonso/ot-harjoitustyo/src/button.png")
+            button_image = pygame.transform.scale(button_image, (350, 100))
+            login_button = Button(button_image, 275, 150, "Kirjaudu sisään")
+            register_button = Button(button_image, 275, 250, "Rekisteröidy")
+            menu_button = Button(button_image, 275, 350, "Jatka kirjautumatta")
+
+            for button in [login_button, register_button, menu_button]:
+                button.change_color(pygame.mouse.get_pos())
+                button.update()
+
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if register_button.is_pressed(pygame.mouse.get_pos()):
+                        RegisterView()
+                    if login_button.is_pressed(
+                        pygame.mouse.get_pos()):
+                        LoginView()
+                    if menu_button.is_pressed(pygame.mouse.get_pos()):
+                        Ui.menu(self)
+
+
+            pygame.display.update()
 
     def play_screen(self, level):
-        self.screen = pygame.display.set_mode((850,550))
+        self.screen = pygame.display.set_mode((550,550))
         pygame.display.set_caption("Sudoku")
         self.font = pygame.font.SysFont('Arial', 30)
 
@@ -87,11 +124,15 @@ class Ui:
             pygame.display.update()
 
     def menu(self):
+        self.screen = pygame.display.set_mode((550, 550))
+        pygame.display.set_caption("Aloitusvalikko")
+        self.font = pygame.font.SysFont('Arial', 30)
+
         button_image = pygame.image.load("/home/olkkonso/ot-harjoitustyo/src/button.png")
         button_image = pygame.transform.scale(button_image, (250, 100))
         new_game_button = Button(button_image, 275, 200, "Aloita uusi peli")
         statistics_button = Button(button_image, 275, 300, "Pelitilastot")
-
+        
         while True:
             self.screen.fill((250, 250, 250))
 
@@ -144,7 +185,7 @@ class Ui:
                         pygame.mouse.get_pos()):
                         Ui.choose_level(self)
                     if menu_button.is_pressed(pygame.mouse.get_pos()):
-                        Ui()
+                        Ui.menu(self)
 
             pygame.display.update()
 
@@ -176,6 +217,6 @@ class Ui:
                     sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if menu_button.is_pressed(pygame.mouse.get_pos()):
-                        Ui()
+                        Ui.menu(self)
 
             pygame.display.update()

@@ -6,7 +6,6 @@ from services.game_loop import GameLoop
 pygame.init()
 
 screen = pygame.display.set_mode((550, 550))
-pygame.display.set_caption("Aloitusvalikko")
 main_font = pygame.font.SysFont('Arial', 30)
 
 class Button:
