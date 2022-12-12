@@ -4,7 +4,7 @@ import pygame
 from ui.textbox import TextBox
 from ui.button import Button
 
-class RegisterView:
+class LoginView:
     def __init__(self):
 
         pygame.init()
