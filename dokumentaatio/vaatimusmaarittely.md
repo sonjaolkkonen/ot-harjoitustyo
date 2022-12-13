@@ -11,10 +11,10 @@ Sovelluksella on ainoastaan yksi käyttäjärooli eli normaali käyttäjä.
 
 ### Sovelluksen avaaminen
 
-- Kun käyttäjä avaa sovelluksen, käyttäjä voi luoda käyttäjätunnuksen, kirjautua sisään jo olemassaolevalla käyttäjätunnuksella tai jatkaa luomatta käyttäjätunnusta. Jotta pelaajan pisteet tallentuvat pistetilastoihin, tulee hänen luoda käyttäjätunnus. Mikäli pelaaja ei luo käyttäjätunnusta, siirtyy hän suoraan aloitusvalikkoon.
+- Kun käyttäjä avaa sovelluksen, käyttäjä voi luoda käyttäjätunnuksen, kirjautua sisään jo olemassaolevalla käyttäjätunnuksella tai jatkaa luomatta käyttäjätunnusta. **TEHTY** Jotta pelaajan pisteet tallentuvat pistetilastoihin, tulee hänen luoda käyttäjätunnus. Mikäli pelaaja ei luo käyttäjätunnusta, siirtyy hän suoraan aloitusvalikkoon.**TEHTY**
 - Mikäli käyttäjä valitsee käyttäjätunnuksen luomisen, tulee hänen luoda käyttäjätunnus, joka ei ole vielä muilla käytössä, ja joka on 3-10 merkkiä pitkä. 
 - Käyttäjätunnuksen luomisen jälkeen käyttäjä voi kirjautua sovellukseen. Mikäli käyttäjälle oli jo luotuna käyttäjätunnus, siirtyy hän tähän kohtaan. Kirjautuminen onnistuu syöttämällä käyttäjätunnus ja salasana kirjautumislomakkeelle. Jos käyttäjää ei ole olemassa tai salasana on virheellinen, herjaa järjestelmä tästä.
-- Kirjautumisen jälkeen käyttäjä siirtyy aloitusvalikkoon. 
+- Kirjautumisen jälkeen käyttäjä siirtyy aloitusvalikkoon. **TEHTY**
 
 ### Aloitusvalikko
 
