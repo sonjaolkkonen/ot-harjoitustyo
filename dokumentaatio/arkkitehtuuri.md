@@ -9,7 +9,18 @@ Pakkaus *ui* sisältää käyttöliittymästä, *services* sovelluslogiikasta ja
 
 ## Käyttöliittymä
 
+Käyttöliittymä sisältää 8 erilaista näkymää:
 
+- Tervetuloa-näkymä
+- Aloitusvalikko
+- Pelitilastot
+- Vaikeustason valinta
+- Kirjautuminen
+- Uuden käyttäjän luominen
+- Pelinäkymä
+- Loppunäkymä
+
+Näistä kirjautuminen ja uuden käyttäjän luominen on toteutettu omana luokkanaan, muut on toteutettu omina metodeinaan osana Ui-luokkaa. Näkymien näyttämisestä vastaa Ui-luokka. Käyttöliittymä on pyritty eristämään täysin sovelluslogiikasta. Se ainoastaan kutsuu pelinäkymässä GameLoop-luokkaa.
 
 ## Sovelluslogiikka
 
@@ -20,7 +31,14 @@ Sovelluksen toiminnallisista kokonaisuuksista vastaa GameLoop-luokka. Luokka tar
 - insert
 - handle_events
 
-## Esimerkkikaavio vaikeustason valinnasta
+GameLoop-luokan vastuulla on Sudoku-ruudukon mallintaminen, luominen ja pelitilanteiden luominen. 
+
+## Päätoiminnallisuudet
+
+Kuvataan seuraavaksi sovelluksen toimintalogiikka yhden päätoiminnalisuuden osalta sekvenssikaaviona.
+
+### Vaikeustason valinta
+
 ![image](https://user-images.githubusercontent.com/117500758/205943711-a89407cd-2c71-429d-98b5-5f845ce641f8.png)
 
 
