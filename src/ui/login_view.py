@@ -78,7 +78,7 @@ class LoginView:
             self.screen.blit(password_text,
                              password_text_rect)
 
-            button_image = pygame.image.load("/home/olkkonso/ot-harjoitustyo/src/button.png")
+            button_image = self.image
             button_image = pygame.transform.scale(button_image, (200, 80))
             create_user_button = Button(button_image, 275, 360, "Kirjaudu")
             create_user_button.change_color(pygame.mouse.get_pos())

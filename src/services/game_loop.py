@@ -2,7 +2,9 @@ from random import shuffle
 import copy
 import sys
 import pygame
+import os
 
+dirname = os.path.dirname(__file__)
 
 class GameLoop():
     """Sovelluksen logiikasta vastaava luokka.
@@ -26,6 +28,7 @@ class GameLoop():
         self.grid = grid
         self.level = level
         self.buffer = None
+        self.image = pygame.image.load(os.path.join(dirname, "../", "assets", "button.png"))
 
         self.grid = [[0 for i in range(9)] for j in range(9)]
 
