@@ -8,7 +8,11 @@ from ui.button import Button
 dirname = os.path.dirname(__file__)
 
 class LoginView:
+    """Luokka, joka luo kirjautumis-näkymän. Näkymässä käyttäjä voi kirjautua sisään jo olemassa olevalla käyttäjätunnuksella. 
+    """
     def __init__(self):
+        """Luokan konstruktori, joka luo uuden näkymän. 
+        """
 
         pygame.init()
 
@@ -22,9 +26,11 @@ class LoginView:
 
         self.image = pygame.image.load(os.path.join(dirname, "../", "assets", "button.png"))
 
-        self.create_user()
+        self.login_user()
 
-    def create_user(self):
+    def login_user(self):
+        """Kirjautuu sisään pelaajan antamilla tiedoilla.
+        """
         from ui.ui import Ui
 
         username_box = TextBox(250,200,200,40)

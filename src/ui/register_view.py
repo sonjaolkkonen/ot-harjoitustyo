@@ -8,7 +8,11 @@ from ui.button import Button
 dirname = os.path.dirname(__file__)
 
 class RegisterView:
+    """Luokka, joka luo rekisteröinti-näkymän. Näkymässä pelajaa voi luoda itselleen käyttäjätunnuksen.
+    """
     def __init__(self):
+        """Luokan konstruktori, joka luo uuden näkymän. 
+        """
 
         pygame.init()
 
@@ -26,6 +30,8 @@ class RegisterView:
         self.create_user()
 
     def create_user(self):
+        """Luo uuden käyttäjän pelaajan antamilla tiedoilla.
+        """
         from ui.ui import Ui
 
         username_box = TextBox(250,200,200,40)

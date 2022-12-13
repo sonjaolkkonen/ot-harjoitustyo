@@ -5,7 +5,19 @@ import pygame
 
 
 class GameLoop():
+    """Sovelluksen logiikasta vastaava luokka.
+    """ 
     def __init__(self, position, screen, font, number, grid, level):
+        """Konstruktori, joka alustaa peliloopin.
+
+        Args:
+            position: Numeroiden piirtämiseen käytettävä fontti.
+            screen: Näyttö, johon peli piirretään.
+            font: Numeoriden piirtämiseen käytettävä fontti.
+            number: Pelissä käytettävä numero.
+            grid: 9x9 ruudukko, joka sisältää sudokussa käytettävän peliruudukon ja sen numerot.
+            level: Pelaajan valitsema pelin vaikeustaso. 
+        """
 
         self.position = position
         self.screen = screen
@@ -26,31 +38,38 @@ class GameLoop():
         self.grid_original = copy.deepcopy(self.grid)
         self.handle_events()
 
-    # drawing the screen
-
     def draw_screen(self):
+        """Täyttää näytön valkoisella taustavärillä. 
+        """
         self.screen.fill((255, 250, 240))
 
-    # drawing the grid & 9x9 boxes
     def draw_lines(self):
+        """Piirtää ruudukon ulkoviivat, 3x3 ruudukoiden viivat sekä yksittäisten ruutujen viivat.
+        """
 
         for i in range(0, 10):
-            # 9x9 boxes
             if i % 3 == 0:
                 pygame.draw.line(self.screen, (0, 0, 0),
                                  (50+50*i, 50), (50+50*i, 500), 5)
                 pygame.draw.line(self.screen, (0, 0, 0),
                                  (50, 50+50*i), (500, 50+50*i), 5)
 
-            # vertical lines
             pygame.draw.line(self.screen, (0, 0, 0),
                              (50+50*i, 50), (50+50*i, 500), 2)
-            # horizontal lines
+
             pygame.draw.line(self.screen, (0, 0, 0),
                              (50, 50+50*i), (500, 50+50*i), 2)
         pygame.display.update()
 
     def test_solution(self, grid):
+        """Testaa onko saatu ratkaisu oikein eli jokaisella pysty- ja vaakarivillä on vain yksi numero väliltä 1-9.
+
+        Args:
+            grid: Testattava 9x9 ruudukko, jonka jokainen ruutu sisältää numeron. 
+
+        Returns:
+            True, mikäli ruudukko on Sudokun sääntöjen mukainen, muussa tapauksessa False.
+        """
         for row in range(9):
             for col in range(9):
                 number = grid[row][col]
@@ -61,17 +80,48 @@ class GameLoop():
         return True
 
     def number_already_in_row(self, grid, row, number):
+        """Kertoo onko kyseisellä vaakarivillä jo kyseinen numero.
+
+        Args:
+            grid: Peliruudukko. 
+            row: Vaakarivi, josta tarkistetaan onko kyseistä numeroa jo olemassa. 
+            number: Ruudukkoon lisättävä numero.
+
+        Returns:
+            True, mikäli kyseinen numero jo löytyy kyseiseltä vaakariviltä. Muussa tapauksessa False. 
+        """
         if number in grid[row]:
             return True
         return False
 
     def number_already_in_col(self, grid, col, number):
+        """Kertoo onko kyseisellä pystyrivillä jo kyseinen numero.
+
+        Args:
+            grid: Peliruudukko.
+            col: Pystyrivi, josta tarkistetaan onko kyseistä numeroa jo olemassa.
+            number: Ruudukkoon lisättävä numero.
+
+        Returns:
+            True, mikäli kyseinen numero jo löytyy kyseiseltä pystyriviltä. Muussa tapauksessa False. 
+        """
         for i in range(9):
             if grid[i][col] == number:
                 return True
         return False
 
     def number_already_in_subgrid(self, grid, row, col, number):
+        """Kertoo onko kyseisessä 3x3 ruudukossa jo kyseinen numero. 
+
+        Args:
+            grid: Peliruudukko.
+            row: Vaakarivi, jota käytetään määrittelemään tarkistettavan 3x3 ruudukon vaakarivi.
+            col: Pystyrivi, jota käytetään määrittelemään tarkistettavan 3x3 ruudukon pystyrivi.
+            number: Ruudukkoon lisättävä numero
+
+        Returns:
+            True, mikäli kyseinen numero jo löytyy kyseisestä 3x3 ruudukosta. Muussa tapauksessa False.
+        """
         sub_row = (row // 3) * 3
         sub_col = (col // 3) * 3
         for i in range(sub_row, (sub_row + 3)):
@@ -81,6 +131,17 @@ class GameLoop():
         return False
 
     def valid_location(self, grid, row, col, number):
+        """Testaa ylläolevien metodien avulla onko paikka, johon numeroa ollaan lisäämässä validi paikka sille. Eli vaaka- ja pystyriveillä ei ole toista samaa numeroa 1-9 välillä eikä 3x3 ruudukossa. 
+
+        Args:
+            grid: Peliruudukko.
+            row: Vaakarivi, johon numero ollaan lisäämässä.
+            col: Pystyrivi, johon numero ollaan lisäämässä.
+            number: Lisäämässä oleva numero. 
+
+        Returns:
+            True, mikäli lisättävää numeroa ei jo löydy vaaka- ja pystyriveiltä tai 3x3 ruudukosta. Muussa tapauksessa False. 
+        """
         if self.number_already_in_row(grid, row, number):
             return False
         if self.number_already_in_col(grid, col, number):
@@ -90,6 +151,14 @@ class GameLoop():
         return True
 
     def find_empty_cell(self, grid):
+        """Etsii peliruudukosta seuraavan tyhjän ruudun, johon voidaan lisätä numero. 
+
+        Args:
+            grid: Peliruudukko 
+
+        Returns:
+            Seuraavan tyhjän ruudun sijainnin. Mikäli tyhjiä ruutuja ei enää ole, palautetaan None. 
+        """
         for i in range(9):
             for j in range(9):
                 if grid[i][j] == 0:
@@ -97,6 +166,14 @@ class GameLoop():
         return None
 
     def generate_solution(self, grid):
+        """Luo oikein ratkaistun Sudoku-ruudukon eli ruudukon, jossa jokaisella vaaka- ja pystyrivillä on vain yksi numero väliltä 1-9 sekä myös jokaisessa 3x3 ruudukossa on vain yksi numero väliltä 1-9. Ruudukon luomisessa käytetään apuna ylläolevia metodeja.
+
+        Args:
+            grid: Peliruudukko.
+
+        Returns:
+            Palauttaa False.
+        """
         numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
         for i in range(0, 81):
             row = i//9
@@ -116,6 +193,14 @@ class GameLoop():
         return False
 
     def get_filled_cells(self, grid):
+        """Listaa ne ruudut, joissa on jo numero.
+
+        Args:
+            grid: Peliruudukko.
+
+        Returns:
+            Palauttaa listan täytetyistä ruuduista. 
+        """
         filled_cells = []
         for i in range(len(grid)):
             for j in range(len(grid)):
@@ -125,6 +210,8 @@ class GameLoop():
         return filled_cells
 
     def remove_numbers(self):
+        """Poistaa numeroita ratkaistusta Sudoku-ruudukosta, jotta saadaan luotua aloitusruudukko pelille. Poistettujen numeroiden määrä määritellään vaikeustason mukaan, mitä vaikeampi taso, sitä useampi numero poistetaan.
+        """
         filled_cells = self.get_filled_cells(self.grid)
         filled_cells_amount = len(filled_cells)
         if self.level == "easy":
@@ -147,6 +234,8 @@ class GameLoop():
             return
 
     def draw_numbers(self):
+        """Piirtää numerot peliruudukkoon. 
+        """
         for i in range(9):
             for j in range(9):
                 if self.grid[i][j] != 0:
@@ -156,6 +245,12 @@ class GameLoop():
         pygame.display.update()
 
     def insert(self, screen, position):
+        """Lisää numeroita ruudukkoon pelaajan syötteen perusteella. Mahdollistaa numeroiden lisäämisen tyhjään ruutuun, sekä myös numeron vaihtamisen ja poistamisen. Pelin alussa annettuja numeroita ei pysty muuttamaan.
+
+        Args:
+            screen: Näyttö, johon numerot piirretään. 
+            position: Ruudun, johon numero lisätään, sijainti. 
+        """
         from ui.ui import Ui
         self.screen = screen
         self.position = position
@@ -167,10 +262,8 @@ class GameLoop():
                 if event.type == pygame.QUIT:
                     return
                 if event.type == pygame.KEYDOWN:
-                    # checking if the the cell already has a number when launching the game
                     if self.grid_original[i-1][j-1] != 0:
                         return
-                    # user can change or erase the already inputted number with 0
                     if event.key == 48:
                         self.grid[i-1][j-1] = event.key - 48
                         pygame.draw.rect(self.screen, (255, 250, 240), (
@@ -178,7 +271,6 @@ class GameLoop():
                             self.buffer, 50 - 2*self.buffer, 50 - 2*self.buffer))
                         pygame.display.update()
                         return
-                    # checking if the inputted number is valid
                     if 0 < event.key - 48 < 10:
                         pygame.draw.rect(self.screen, (255, 250, 240), (
                             self.position[0]*50 + self.buffer, self.position[1]*50 +
@@ -196,6 +288,8 @@ class GameLoop():
                     return
 
     def handle_events(self):
+        """Käsittelee pelitapahtumat.
+        """
 
         while True:
             for event in pygame.event.get():

@@ -11,7 +11,11 @@ dirname = os.path.dirname(__file__)
 
 
 class Ui:
+    """Sovelluksen käyttöliittymästä vastaava luokka.
+    """
     def __init__(self):
+        """Luokan konstruktori, joka luo uuden käyttöliittymästä vastaavan luokan. 
+        """
         pygame.init()
 
         self.screen = pygame.display.set_mode((550, 550))
@@ -23,10 +27,11 @@ class Ui:
 
         self.image = pygame.image.load(os.path.join(dirname, "../", "assets", "button.png"))
 
-
         self.main_screen()
 
     def main_screen(self):
+        """Luo ensimmäisen näkymän, jossa käyttäjä voi valita rekisteröityykö, kirjautuuko vai jatkaako kirjautumatta
+        """
 
         self.screen = pygame.display.set_mode((550, 550))
         pygame.display.set_caption("Tervetuloa!")
@@ -62,6 +67,11 @@ class Ui:
             pygame.display.update()
 
     def play_screen(self, level):
+        """Luo pelinäkymän, josta käynnistyy uusi pelaajan valitsemalla vaikeustasolla. 
+
+        Args:
+            level: Pelaajan valitsema vaikeustaso
+        """
         self.screen = pygame.display.set_mode((550,550))
         pygame.display.set_caption("Sudoku")
         self.font = pygame.font.SysFont('Arial', 30)
@@ -89,6 +99,8 @@ class Ui:
 
 
     def choose_level(self):
+        """Luo näkymän, jossa pelajaa valitsee uuden pelin vaikeustason.
+        """
 
         self.screen = pygame.display.set_mode((550, 550))
         pygame.display.set_caption("Vaikeustaso")
@@ -130,6 +142,8 @@ class Ui:
             pygame.display.update()
 
     def menu(self):
+        """Luo aloitusvalikon, josta pelaaja voi aloittaa uuden pelin tai katsoa pelitilastoja.
+        """
         self.screen = pygame.display.set_mode((550, 550))
         pygame.display.set_caption("Aloitusvalikko")
         self.font = pygame.font.SysFont('Arial', 30)
@@ -161,6 +175,8 @@ class Ui:
             pygame.display.update()
 
     def end_screen(self):
+        """Luo loppunäkymän, joka ilmestyy pelaajan ratkaistua sudoku oikein. Näkymästä pelaaja voi aloittaa uuden pelin tai palata aloitusvalikkoon
+        """
         self.screen = pygame.display.set_mode((550, 550))
         pygame.display.set_caption("Pelitilastot")
         self.font = pygame.font.SysFont('Arial', 30)
@@ -196,6 +212,8 @@ class Ui:
             pygame.display.update()
 
     def statistics_screen(self):
+        """Luo pelitilastot-näkymän, josta pelaaja voi katsoa pelitilastoja.
+        """
         self.screen = pygame.display.set_mode((550, 550))
         pygame.display.set_caption("Pelitilastot")
         self.font = pygame.font.SysFont('Arial', 30)
