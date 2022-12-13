@@ -23,5 +23,6 @@
 | 9.12. | 1 | Button-luokan muokkaus |
 | 12.12. | 3 | LoginView ja RegisterView -luokkien luonti |
 | 13.12. | 2 | Docstring-dokumentointi ja bugien fiksaus |
-| 13.12. | 2 | Alustava arkkitehtuurikuvaus ja käyttöohje
-| yht | 57.5 | 
+| 13.12. | 2 | Alustava arkkitehtuurikuvaus ja käyttöohje |
+| 13.12.  0,5 | Pylint-korjaukset |
+| yht | 58 | 
