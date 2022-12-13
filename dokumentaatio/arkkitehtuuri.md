@@ -1,11 +1,14 @@
 # Arkkitehtuurikuvaus
 
 ## Rakenne
-Koodin tämänhetkinen pakkausrakenne on seuraava:
+Ohjelman rakenne tulee noudattamaan kolmitasoista kerrosarkkitehtuuria, ja koodin pakkausrakenne tulee olemaan seuraava:
 
-![image](https://user-images.githubusercontent.com/117500758/207214017-bf8e42a6-eda9-47d7-8f67-c61c89ff8a83.png)
+![image](https://user-images.githubusercontent.com/117500758/207262820-0d906bd9-5a4a-45e5-9d0d-8a239035c2f2.png)
 
-Pakkaus *ui* sisältää käyttöliittymästä ja *services* sovelluslogiikasta vastaavan koodin. 
+Pakkaus *ui* sisältää käyttöliittymästä, *services* sovelluslogiikasta ja *repositories* (tämä puuttuu vielä) tietojen pysyväistallennuksesta vastaavan koodin.
+
+## Käyttöliittymä
+
 
 
 ## Sovelluslogiikka
