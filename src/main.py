@@ -1,4 +1,3 @@
-import pygame
 from ui.ui import Ui
 
 class Sudoku:

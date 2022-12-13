@@ -1,8 +1,8 @@
 from random import shuffle
 import copy
+import os
 import sys
 import pygame
-import os
 
 dirname = os.path.dirname(__file__)
 
@@ -68,7 +68,7 @@ class GameLoop():
         pygame.display.update()
 
     def test_solution(self, grid):
-        """Testaa onko saatu ratkaisu oikein eli jokaisella pysty- 
+        """Testaa onko saatu ratkaisu oikein eli jokaisella pysty-
         ja vaakarivillä on vain yksi numero väliltä 1-9.
 
         Args:
@@ -86,22 +86,25 @@ class GameLoop():
                 grid[row][col] = number
         return True
 
-    def number_already_in_row(self, grid, row, number):
+    @classmethod
+    def number_already_in_row(cls, grid, row, number):
         """Kertoo onko kyseisellä vaakarivillä jo kyseinen numero.
 
         Args:
-            grid: Peliruudukko. 
-            row: Vaakarivi, josta tarkistetaan onko kyseistä numeroa jo olemassa. 
+            grid: Peliruudukko.
+            row: Vaakarivi, josta tarkistetaan onko kyseistä numeroa jo olemassa.
             number: Ruudukkoon lisättävä numero.
 
         Returns:
-            True, mikäli kyseinen numero jo löytyy kyseiseltä vaakariviltä. Muussa tapauksessa False. 
+            True, mikäli kyseinen numero jo löytyy kyseiseltä vaakariviltä.
+            Muussa tapauksessa False.
         """
         if number in grid[row]:
             return True
         return False
 
-    def number_already_in_col(self, grid, col, number):
+    @classmethod
+    def number_already_in_col(cls, grid, col, number):
         """Kertoo onko kyseisellä pystyrivillä jo kyseinen numero.
 
         Args:
@@ -110,24 +113,27 @@ class GameLoop():
             number: Ruudukkoon lisättävä numero.
 
         Returns:
-            True, mikäli kyseinen numero jo löytyy kyseiseltä pystyriviltä. Muussa tapauksessa False. 
+            True, mikäli kyseinen numero jo löytyy kyseiseltä pystyriviltä.
+            Muussa tapauksessa False.
         """
         for i in range(9):
             if grid[i][col] == number:
                 return True
         return False
 
-    def number_already_in_subgrid(self, grid, row, col, number):
-        """Kertoo onko kyseisessä 3x3 ruudukossa jo kyseinen numero. 
+    @classmethod
+    def number_already_in_subgrid(cls, grid, row, col, number):
+        """Kertoo onko kyseisessä 3x3 ruudukossa jo kyseinen numero.
 
         Args:
             grid: Peliruudukko.
             row: Vaakarivi, jota käytetään määrittelemään tarkistettavan 3x3 ruudukon vaakarivi.
             col: Pystyrivi, jota käytetään määrittelemään tarkistettavan 3x3 ruudukon pystyrivi.
-            number: Ruudukkoon lisättävä numero
+            number: Ruudukkoon lisättävä numero.
 
         Returns:
-            True, mikäli kyseinen numero jo löytyy kyseisestä 3x3 ruudukosta. Muussa tapauksessa False.
+            True, mikäli kyseinen numero jo löytyy kyseisestä 3x3 ruudukosta.
+            Muussa tapauksessa False.
         """
         sub_row = (row // 3) * 3
         sub_col = (col // 3) * 3
@@ -138,16 +144,19 @@ class GameLoop():
         return False
 
     def valid_location(self, grid, row, col, number):
-        """Testaa ylläolevien metodien avulla onko paikka, johon numeroa ollaan lisäämässä validi paikka sille. Eli vaaka- ja pystyriveillä ei ole toista samaa numeroa 1-9 välillä eikä 3x3 ruudukossa. 
+        """Testaa ylläolevien metodien avulla onko paikka,
+            johon numeroa ollaan lisäämässä validi paikka sille.
+            Eli vaaka- ja pystyriveillä ei ole toista samaa numeroa 1-9 välillä eikä 3x3 ruudukossa.
 
         Args:
             grid: Peliruudukko.
             row: Vaakarivi, johon numero ollaan lisäämässä.
             col: Pystyrivi, johon numero ollaan lisäämässä.
-            number: Lisäämässä oleva numero. 
+            number: Lisäämässä oleva numero.
 
         Returns:
-            True, mikäli lisättävää numeroa ei jo löydy vaaka- ja pystyriveiltä tai 3x3 ruudukosta. Muussa tapauksessa False. 
+            True, mikäli lisättävää numeroa ei jo löydy vaaka- ja pystyriveiltä
+            tai 3x3 ruudukosta. Muussa tapauksessa False.
         """
         if self.number_already_in_row(grid, row, number):
             return False
@@ -157,14 +166,15 @@ class GameLoop():
             return False
         return True
 
-    def find_empty_cell(self, grid):
-        """Etsii peliruudukosta seuraavan tyhjän ruudun, johon voidaan lisätä numero. 
+    @classmethod
+    def find_empty_cell(cls, grid):
+        """Etsii peliruudukosta seuraavan tyhjän ruudun, johon voidaan lisätä numero.
 
         Args:
-            grid: Peliruudukko 
+            grid: Peliruudukko.
 
         Returns:
-            Seuraavan tyhjän ruudun sijainnin. Mikäli tyhjiä ruutuja ei enää ole, palautetaan None. 
+            Seuraavan tyhjän ruudun sijainnin. Mikäli tyhjiä ruutuja ei enää ole, palautetaan None.
         """
         for i in range(9):
             for j in range(9):
@@ -173,7 +183,10 @@ class GameLoop():
         return None
 
     def generate_solution(self, grid):
-        """Luo oikein ratkaistun Sudoku-ruudukon eli ruudukon, jossa jokaisella vaaka- ja pystyrivillä on vain yksi numero väliltä 1-9 sekä myös jokaisessa 3x3 ruudukossa on vain yksi numero väliltä 1-9. Ruudukon luomisessa käytetään apuna ylläolevia metodeja.
+        """Luo oikein ratkaistun Sudoku-ruudukon eli ruudukon, jossa jokaisella
+            vaaka- ja pystyrivillä on vain yksi numero väliltä 1-9
+            sekä myös jokaisessa 3x3 ruudukossa on vain yksi numero väliltä 1-9.
+            Ruudukon luomisessa käytetään apuna ylläolevia metodeja.
 
         Args:
             grid: Peliruudukko.
@@ -199,14 +212,15 @@ class GameLoop():
         grid[row][col] = 0
         return False
 
-    def get_filled_cells(self, grid):
+    @classmethod
+    def get_filled_cells(cls, grid):
         """Listaa ne ruudut, joissa on jo numero.
 
         Args:
             grid: Peliruudukko.
 
         Returns:
-            Palauttaa listan täytetyistä ruuduista. 
+            Palauttaa listan täytetyistä ruuduista.
         """
         filled_cells = []
         for i in range(len(grid)):
@@ -217,7 +231,10 @@ class GameLoop():
         return filled_cells
 
     def remove_numbers(self):
-        """Poistaa numeroita ratkaistusta Sudoku-ruudukosta, jotta saadaan luotua aloitusruudukko pelille. Poistettujen numeroiden määrä määritellään vaikeustason mukaan, mitä vaikeampi taso, sitä useampi numero poistetaan.
+        """Poistaa numeroita ratkaistusta Sudoku-ruudukosta,
+        jotta saadaan luotua aloitusruudukko pelille.
+        Poistettujen numeroiden määrä määritellään vaikeustason mukaan,
+        mitä vaikeampi taso, sitä useampi numero poistetaan.
         """
         filled_cells = self.get_filled_cells(self.grid)
         filled_cells_amount = len(filled_cells)
@@ -241,7 +258,7 @@ class GameLoop():
             return
 
     def draw_numbers(self):
-        """Piirtää numerot peliruudukkoon. 
+        """Piirtää numerot peliruudukkoon.
         """
         for i in range(9):
             for j in range(9):
@@ -252,11 +269,14 @@ class GameLoop():
         pygame.display.update()
 
     def insert(self, screen, position):
-        """Lisää numeroita ruudukkoon pelaajan syötteen perusteella. Mahdollistaa numeroiden lisäämisen tyhjään ruutuun, sekä myös numeron vaihtamisen ja poistamisen. Pelin alussa annettuja numeroita ei pysty muuttamaan.
+        """Lisää numeroita ruudukkoon pelaajan syötteen perusteella.
+            Mahdollistaa numeroiden lisäämisen tyhjään ruutuun,
+            sekä myös numeron vaihtamisen ja poistamisen.
+            Pelin alussa annettuja numeroita ei pysty muuttamaan.
 
         Args:
-            screen: Näyttö, johon numerot piirretään. 
-            position: Ruudun, johon numero lisätään, sijainti. 
+            screen: Näyttö, johon numerot piirretään.
+            position: Ruudun, johon numero lisätään, sijainti.
         """
         from ui.ui import Ui
         self.screen = screen
