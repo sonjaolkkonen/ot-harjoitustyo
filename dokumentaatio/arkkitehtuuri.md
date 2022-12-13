@@ -27,9 +27,9 @@ Näistä kirjautuminen ja uuden käyttäjän luominen on toteutettu omana luokka
 Sovelluksen toiminnallisista kokonaisuuksista vastaa GameLoop-luokka. Luokka tarjoaa kaikille käyttöliittymän toiminnoille oman metodin. Näitä ovat esimerkiksi: 
 
 - ```generate_solution```
-- remove_numbers
-- insert
-- handle_events
+- ```remove_numbers```
+- ```insert```
+- ```handle_events```
 
 GameLoop-luokan vastuulla on Sudoku-ruudukon mallintaminen, luominen ja pelitilanteiden luominen. 
 
