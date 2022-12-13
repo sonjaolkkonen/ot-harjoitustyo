@@ -1,7 +1,4 @@
-import sys
-sys.path.insert(0, '/home/olkkonso/ot-harjoitustyo/src')
 import pygame
-from services.game_loop import GameLoop
 
 pygame.init()
 

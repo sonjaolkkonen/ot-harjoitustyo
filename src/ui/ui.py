@@ -1,9 +1,13 @@
 import sys
 import pygame
+import os
+
 from ui.button import Button
 from services.game_loop import GameLoop
 from ui.register_view import RegisterView
 from ui.login_view import LoginView
+
+dirname = os.path.dirname(__file__)
 
 
 class Ui:
@@ -11,12 +15,14 @@ class Ui:
         pygame.init()
 
         self.screen = pygame.display.set_mode((550, 550))
-        pygame.display.set_caption("Aloitusvalikko")
         self.font = pygame.font.SysFont('Arial', 30)
 
         self.position = None
         self.number = None
         self.grid = None
+
+        self.image = pygame.image.load(os.path.join(dirname, "../", "assets", "button.png"))
+
 
         self.main_screen()
 
@@ -29,7 +35,7 @@ class Ui:
         while True:
             self.screen.fill((250, 250, 250))
 
-            button_image = pygame.image.load("/home/olkkonso/ot-harjoitustyo/src/button.png")
+            button_image = self.image
             button_image = pygame.transform.scale(button_image, (350, 100))
             login_button = Button(button_image, 275, 150, "Kirjaudu sisään")
             register_button = Button(button_image, 275, 250, "Rekisteröidy")
@@ -97,7 +103,7 @@ class Ui:
             self.screen.blit(statistics_screen_text,
                              statistics_screen_text_rect)
 
-            button_image = pygame.image.load("/home/olkkonso/ot-harjoitustyo/src/button.png")
+            button_image = self.image
             button_image = pygame.transform.scale(button_image, (250, 100))
             easy_button = Button(button_image, 275, 200, "Helppo")
             medium_button = Button(button_image, 275, 300, "Keskivaikea")
@@ -128,7 +134,7 @@ class Ui:
         pygame.display.set_caption("Aloitusvalikko")
         self.font = pygame.font.SysFont('Arial', 30)
 
-        button_image = pygame.image.load("/home/olkkonso/ot-harjoitustyo/src/button.png")
+        button_image = self.image
         button_image = pygame.transform.scale(button_image, (250, 100))
         new_game_button = Button(button_image, 275, 200, "Aloita uusi peli")
         statistics_button = Button(button_image, 275, 300, "Pelitilastot")
@@ -166,7 +172,7 @@ class Ui:
             end_screen_text_rect = end_screen_text.get_rect(center=(275, 100))
             self.screen.blit(end_screen_text, end_screen_text_rect)
 
-            button_image = pygame.image.load("/home/olkkonso/ot-harjoitustyo/src/button.png")
+            button_image = self.image
             button_image = pygame.transform.scale(button_image, (250, 100))
             new_game_button = Button(
                 button_image, 275, 200, "Aloita uusi peli")
@@ -204,7 +210,7 @@ class Ui:
             self.screen.blit(statistics_screen_text,
                              statistics_screen_text_rect)
 
-            button_image = pygame.image.load("/home/olkkonso/ot-harjoitustyo/src/button.png")
+            button_image = self.image
             button_image = pygame.transform.scale(button_image, (250, 100))
             menu_button = Button(button_image, 275, 200, "Palaa alkuun")
 

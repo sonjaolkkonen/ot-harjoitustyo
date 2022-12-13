@@ -1,8 +1,11 @@
 import sys
 import pygame
+import os
 
 from ui.textbox import TextBox
 from ui.button import Button
+
+dirname = os.path.dirname(__file__)
 
 class LoginView:
     def __init__(self):
@@ -10,11 +13,14 @@ class LoginView:
         pygame.init()
 
         self.screen = pygame.display.set_mode((550, 550))
+        pygame.display.set_caption("Kirjaudu sisään")
         self.font_main = pygame.font.SysFont('Arial', 30)
 
         self.position = None
         self.number = None
         self.grid = None
+
+        self.image = pygame.image.load(os.path.join(dirname, "../", "assets", "button.png"))
 
         self.create_user()
 
@@ -46,7 +52,7 @@ class LoginView:
                 textbox.draw(self.screen)
 
             register_view_text = self.font_main.render(
-                "Luo käyttäjätunnus", True, (0, 0, 0))
+                "Kirjaudu sisään", True, (0, 0, 0))
             register_view_text_rect = register_view_text.get_rect(
                 center=(275, 150))
             self.screen.blit(register_view_text,
@@ -68,10 +74,9 @@ class LoginView:
 
             button_image = pygame.image.load("/home/olkkonso/ot-harjoitustyo/src/button.png")
             button_image = pygame.transform.scale(button_image, (200, 80))
-            create_user_button = Button(button_image, 275, 360, "Luo tunnus")
+            create_user_button = Button(button_image, 275, 360, "Kirjaudu")
             create_user_button.change_color(pygame.mouse.get_pos())
             create_user_button.update()
 
 
             pygame.display.update()
-

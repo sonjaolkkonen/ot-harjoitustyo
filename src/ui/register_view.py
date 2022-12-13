@@ -1,8 +1,11 @@
 import sys
 import pygame
+import os
 
 from ui.textbox import TextBox
 from ui.button import Button
+
+dirname = os.path.dirname(__file__)
 
 class RegisterView:
     def __init__(self):
@@ -10,11 +13,15 @@ class RegisterView:
         pygame.init()
 
         self.screen = pygame.display.set_mode((550, 550))
+        pygame.display.set_caption("Rekisteröidy")
+
         self.font_main = pygame.font.SysFont('Arial', 30)
 
         self.position = None
         self.number = None
         self.grid = None
+
+        self.image = pygame.image.load(os.path.join(dirname, "../", "assets", "button.png"))
 
         self.create_user()
 
@@ -66,7 +73,7 @@ class RegisterView:
             self.screen.blit(password_text,
                              password_text_rect)
 
-            button_image = pygame.image.load("/home/olkkonso/ot-harjoitustyo/src/button.png")
+            button_image = self.image
             button_image = pygame.transform.scale(button_image, (200, 80))
             create_user_button = Button(button_image, 275, 360, "Luo tunnus")
             create_user_button.change_color(pygame.mouse.get_pos())
