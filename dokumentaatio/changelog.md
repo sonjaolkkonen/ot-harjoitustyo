@@ -16,3 +16,6 @@
 - Lisätty toiminnallisuus, joka mahdollistaa vaikeustason valinnan uutta peliä aloitettaessa. Sudoku generoituu käyttäjän valitseman vaikeustason mukaan eli mitä vaikeampi taso, sitä enemmän numeroita puuttuu pelin alussa. 
 - Lisätty toiminnallisuus, joka tarkistaa onko pelaajan tekemä sudoku oikein, kun tämä on täyttänyt kaikki ruudut. Mikäli sudoku ei ole oikein, ei tapahdu mitään. Mikäli sudoku on oikein, siirtyy pelaaja loppunäkymään.
 - Lisätty loppunäkymä, jossa ilmoitetaan pelin menneen läpi. Näkymässä pelaaja voi aloittaa uuden pelin tai palata aloitusvalikkoon. 
+
+## Viikko 6
+- Lisätty rekisteröitymis- ja kirjautumisnäkymät, joissa pelaaja voi lisätä syötteet tekstikenttiin
