@@ -20,7 +20,7 @@ Käyttöliittymä sisältää 8 erilaista näkymää:
 - Pelinäkymä
 - Loppunäkymä
 
-Näistä kirjautuminen ja uuden käyttäjän luominen on toteutettu omana luokkanaan, muut on toteutettu omina metodeinaan osana Ui-luokkaa. Näkymien näyttämisestä vastaa Ui-luokka. Käyttöliittymä on pyritty eristämään täysin sovelluslogiikasta. Se ainoastaan kutsuu pelinäkymässä GameLoop-luokkaa.
+Näistä kirjautuminen ja uuden käyttäjän luominen on toteutettu omana luokkanaan, muut on toteutettu omina metodeinaan osana Ui-luokkaa. Näkymien näyttämisestä vastaa Ui-luokka. Käyttöliittymä on pyritty eristämään täysin sovelluslogiikasta, ja se ainoastaan kutsuu pelinäkymässä GameLoop-luokkaa.
 
 ## Sovelluslogiikka
 
