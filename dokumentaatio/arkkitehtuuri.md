@@ -39,7 +39,7 @@ Kuvataan seuraavaksi sovelluksen toimintalogiikka yhden päätoiminnalisuuden os
 
 ### Vaikeustason valinta
 
-![image](https://user-images.githubusercontent.com/117500758/205943711-a89407cd-2c71-429d-98b5-5f845ce641f8.png)
+![image](https://user-images.githubusercontent.com/117500758/207268321-0148907f-0b8f-463d-838d-0bc354fee25f.png)
 
 
 
