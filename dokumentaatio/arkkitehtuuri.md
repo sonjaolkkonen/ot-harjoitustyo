@@ -1,8 +1,11 @@
 # Arkkitehtuurikuvaus
 
 ## Rakenne
+Koodin tämänhetkinen pakkausrakenne on seuraava:
 
-![Screenshot from 2022-11-28 03-25-00](https://user-images.githubusercontent.com/117500758/204172756-da2b089d-07e7-4a55-b84c-e60328942f82.png)
+![image](https://user-images.githubusercontent.com/117500758/207214017-bf8e42a6-eda9-47d7-8f67-c61c89ff8a83.png)
+
+Pakkaus ui sisältää käyttöliittymästä ja services sovelluslogiikasta vastaavan koodin. 
 
 
 ## Sovelluslogiikka
