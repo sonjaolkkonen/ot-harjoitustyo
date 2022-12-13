@@ -19,4 +19,9 @@
 | 4.-5.12. | 3 | Yritetty saada tarvittavat napit pelinäkymään. Tämä ei vielä onnistunut |
 | 6.12. | 3 | Lisätty toiminnallisuus, joka mahdollistaa vaikeustason valinnan, tehty pylint korjauksia |
 | 6.12. | 1 | Sekvenssikaavion luonti, changelogin ja readme:n päivitys | 
-| yht | 47.5 | 
+| 8.12. | 2 | Pakkausrakenteen muutos |
+| 9.12. | 1 | Button-luokan muokkaus |
+| 12.12. | 3 | LoginView ja RegisterView -luokkien luonti |
+| 13.12. | 2 | Docstring-dokumentointi ja bugien fiksaus |
+| 13.12. | 2 | Alustava arkkitehtuurikuvaus ja käyttöohje
+| yht | 57.5 | 
