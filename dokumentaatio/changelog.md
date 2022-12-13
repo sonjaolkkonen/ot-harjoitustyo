@@ -21,3 +21,4 @@
 - Järkevöitetty pakkausrakennetta
 - Muokattu Buttons-luokkaa, poistettu toisteisuutta
 - Lisätty rekisteröitymis- ja kirjautumisnäkymät, joissa pelaaja voi lisätä syötteet tekstikenttiin
+- Tehty TextBox-luokka, joka vastaa tekstikentästä
