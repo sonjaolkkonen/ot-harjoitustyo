@@ -6,9 +6,11 @@ import os
 
 dirname = os.path.dirname(__file__)
 
+
 class GameLoop():
     """Sovelluksen logiikasta vastaava luokka.
-    """ 
+    """
+
     def __init__(self, position, screen, font, number, grid, level):
         """Konstruktori, joka alustaa peliloopin.
 
@@ -18,7 +20,7 @@ class GameLoop():
             font: Numeoriden piirtämiseen käytettävä fontti.
             number: Pelissä käytettävä numero.
             grid: 9x9 ruudukko, joka sisältää sudokussa käytettävän peliruudukon ja sen numerot.
-            level: Pelaajan valitsema pelin vaikeustaso. 
+            level: Pelaajan valitsema pelin vaikeustaso.
         """
 
         self.position = position
@@ -28,7 +30,8 @@ class GameLoop():
         self.grid = grid
         self.level = level
         self.buffer = None
-        self.image = pygame.image.load(os.path.join(dirname, "../", "assets", "button.png"))
+        self.image = pygame.image.load(os.path.join(
+            dirname, "../", "assets", "button.png"))
 
         self.grid = [[0 for i in range(9)] for j in range(9)]
 
@@ -42,7 +45,7 @@ class GameLoop():
         self.handle_events()
 
     def draw_screen(self):
-        """Täyttää näytön valkoisella taustavärillä. 
+        """Täyttää näytön valkoisella taustavärillä.
         """
         self.screen.fill((255, 250, 240))
 
@@ -65,10 +68,11 @@ class GameLoop():
         pygame.display.update()
 
     def test_solution(self, grid):
-        """Testaa onko saatu ratkaisu oikein eli jokaisella pysty- ja vaakarivillä on vain yksi numero väliltä 1-9.
+        """Testaa onko saatu ratkaisu oikein eli jokaisella pysty- 
+        ja vaakarivillä on vain yksi numero väliltä 1-9.
 
         Args:
-            grid: Testattava 9x9 ruudukko, jonka jokainen ruutu sisältää numeron. 
+            grid: Testattava 9x9 ruudukko, jonka jokainen ruutu sisältää numeron.
 
         Returns:
             True, mikäli ruudukko on Sudokun sääntöjen mukainen, muussa tapauksessa False.

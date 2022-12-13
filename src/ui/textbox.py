@@ -44,7 +44,8 @@ class TextBox:
                     self.text = self.text[:-1]
                 else:
                     self.text += event.unicode
-                self.text_surface = self.textbox_font.render(self.text, True,(0,0,0))
+                self.text_surface = self.textbox_font.render(
+                    self.text, True, (0, 0, 0))
 
     def update(self):
         """Päivittää tekstikentän leveyden, mikäli teksti menee tekstikentän yli. 
@@ -60,7 +61,3 @@ class TextBox:
         """
         screen.blit(self.text_surface, (self.rect.x+5, self.rect.y+5))
         pygame.draw.rect(screen, self.color, self.rect, 2)
-
-
-
-

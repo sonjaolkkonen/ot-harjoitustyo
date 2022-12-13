@@ -13,6 +13,7 @@ dirname = os.path.dirname(__file__)
 class Ui:
     """Sovelluksen käyttöliittymästä vastaava luokka.
     """
+
     def __init__(self):
         """Luokan konstruktori, joka luo uuden käyttöliittymästä vastaavan luokan. 
         """
@@ -25,7 +26,8 @@ class Ui:
         self.number = None
         self.grid = None
 
-        self.image = pygame.image.load(os.path.join(dirname, "../", "assets", "button.png"))
+        self.image = pygame.image.load(os.path.join(
+            dirname, "../", "assets", "button.png"))
 
         self.main_screen()
 
@@ -58,11 +60,10 @@ class Ui:
                     if register_button.is_pressed(pygame.mouse.get_pos()):
                         RegisterView()
                     if login_button.is_pressed(
-                        pygame.mouse.get_pos()):
+                            pygame.mouse.get_pos()):
                         LoginView()
                     if menu_button.is_pressed(pygame.mouse.get_pos()):
                         Ui.menu(self)
-
 
             pygame.display.update()
 
@@ -72,7 +73,7 @@ class Ui:
         Args:
             level: Pelaajan valitsema vaikeustaso
         """
-        self.screen = pygame.display.set_mode((550,550))
+        self.screen = pygame.display.set_mode((550, 550))
         pygame.display.set_caption("Sudoku")
         self.font = pygame.font.SysFont('Arial', 30)
 
@@ -93,10 +94,8 @@ class Ui:
                 GameLoop(position, screen, font, number, grid, level="medium")
             if level == "hard":
                 GameLoop(position, screen, font, number, grid, level="hard")
-            
+
             pygame.display.update()
-
-
 
     def choose_level(self):
         """Luo näkymän, jossa pelajaa valitsee uuden pelin vaikeustason.
@@ -133,11 +132,10 @@ class Ui:
                     if easy_button.is_pressed(pygame.mouse.get_pos()):
                         Ui.play_screen(self, level="easy")
                     if medium_button.is_pressed(
-                        pygame.mouse.get_pos()):
+                            pygame.mouse.get_pos()):
                         Ui.play_screen(self, level="medium")
                     if hard_button.is_pressed(pygame.mouse.get_pos()):
                         Ui.play_screen(self, level="hard")
-
 
             pygame.display.update()
 
@@ -152,7 +150,7 @@ class Ui:
         button_image = pygame.transform.scale(button_image, (250, 100))
         new_game_button = Button(button_image, 275, 200, "Aloita uusi peli")
         statistics_button = Button(button_image, 275, 300, "Pelitilastot")
-        
+
         while True:
             self.screen.fill((250, 250, 250))
 
@@ -166,10 +164,10 @@ class Ui:
                     sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if new_game_button.is_pressed(
-                        pygame.mouse.get_pos()):
+                            pygame.mouse.get_pos()):
                         Ui.choose_level(self)
                     if statistics_button.is_pressed(
-                        pygame.mouse.get_pos()):
+                            pygame.mouse.get_pos()):
                         Ui.statistics_screen(self)
 
             pygame.display.update()
@@ -204,7 +202,7 @@ class Ui:
                     sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if new_game_button.is_pressed(
-                        pygame.mouse.get_pos()):
+                            pygame.mouse.get_pos()):
                         Ui.choose_level(self)
                     if menu_button.is_pressed(pygame.mouse.get_pos()):
                         Ui.menu(self)

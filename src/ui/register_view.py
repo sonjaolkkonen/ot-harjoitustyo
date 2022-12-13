@@ -7,9 +7,11 @@ from ui.button import Button
 
 dirname = os.path.dirname(__file__)
 
+
 class RegisterView:
     """Luokka, joka luo rekisteröinti-näkymän. Näkymässä pelajaa voi luoda itselleen käyttäjätunnuksen.
     """
+
     def __init__(self):
         """Luokan konstruktori, joka luo uuden näkymän. 
         """
@@ -25,7 +27,8 @@ class RegisterView:
         self.number = None
         self.grid = None
 
-        self.image = pygame.image.load(os.path.join(dirname, "../", "assets", "button.png"))
+        self.image = pygame.image.load(os.path.join(
+            dirname, "../", "assets", "button.png"))
 
         self.create_user()
 
@@ -34,9 +37,8 @@ class RegisterView:
         """
         from ui.ui import Ui
 
-        username_box = TextBox(250,200,200,40)
-        password_box = TextBox(250,250,200,40)
-
+        username_box = TextBox(250, 200, 200, 40)
+        password_box = TextBox(250, 250, 200, 40)
 
         while True:
             self.screen.fill((250, 250, 250))
@@ -47,15 +49,15 @@ class RegisterView:
                     sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if create_user_button.is_pressed(
-                        pygame.mouse.get_pos()):
+                            pygame.mouse.get_pos()):
                         Ui.menu(self)
-                for textbox in [username_box,password_box]:
+                for textbox in [username_box, password_box]:
                     textbox.handle_event(event)
-                
-            for textbox in [username_box,password_box]:
+
+            for textbox in [username_box, password_box]:
                 textbox.update()
 
-            for textbox in [username_box,password_box]:
+            for textbox in [username_box, password_box]:
                 textbox.draw(self.screen)
 
             register_view_text = self.font_main.render(
@@ -64,7 +66,7 @@ class RegisterView:
                 center=(275, 150))
             self.screen.blit(register_view_text,
                              register_view_text_rect)
-            
+
             username_text = self.font_main.render(
                 "Käyttäjätunnus:", True, (0, 0, 0))
             username_text_rect = username_text.get_rect(
@@ -85,6 +87,4 @@ class RegisterView:
             create_user_button.change_color(pygame.mouse.get_pos())
             create_user_button.update()
 
-
             pygame.display.update()
-

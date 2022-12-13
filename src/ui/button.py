@@ -37,7 +37,7 @@ class Button:
         """Tarkistaa sijainnin avulla onko painiketta painettu.
 
         Args:
-            position: Kursorin sijainti.
+            position: Painikkeen sijainti.
 
         Returns:
             True, jos painiketta on painettu, muussa tapauksessa False.
@@ -50,7 +50,7 @@ class Button:
         """Vaihtaa painikkeen tekstin väriä mikäli kursori on painikkeen päällä. 
 
         Args:
-            position: Kursorin sijainti. 
+            position: Painikkeen sijainti. 
         """
         if position[0] in range(self.rect.left, self.rect.right) and position[1] in range(self.rect.top, self.rect.bottom):
             self.text = main_font.render(self.content, True, (0,0,0))
