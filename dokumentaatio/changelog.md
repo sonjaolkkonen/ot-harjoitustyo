@@ -18,4 +18,7 @@
 - Lisätty loppunäkymä, jossa ilmoitetaan pelin menneen läpi. Näkymässä pelaaja voi aloittaa uuden pelin tai palata aloitusvalikkoon. 
 
 ## Viikko 6
+- Järkevöitetty pakkausrakennetta
+- Muokattu Buttons-luokkaa, poistettu toisteisuutta
 - Lisätty rekisteröitymis- ja kirjautumisnäkymät, joissa pelaaja voi lisätä syötteet tekstikenttiin
+- Tehty TextBox-luokka, joka vastaa tekstikentästä
