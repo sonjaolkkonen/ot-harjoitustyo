@@ -1,12 +1,13 @@
 import unittest
+import pygame
 from services.game_loop import GameLoop
 
 
 class TestSudoku(unittest.TestCase):
     def setUp(self):
         position = None
-        screen = None
-        font = None
+        screen = pygame.display.set_mode((550, 550))
+        font = pygame.font.SysFont('Arial', 30)
         number = None
         grid = None
 
