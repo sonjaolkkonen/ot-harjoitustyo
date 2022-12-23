@@ -3,6 +3,8 @@ import copy
 import os
 import sys
 import pygame
+import time
+from repositories.score_repository import ScoreRepository
 
 dirname = os.path.dirname(__file__)
 
@@ -30,6 +32,9 @@ class GameLoop():
         self.grid = grid
         self.level = level
         self.buffer = None
+        self.start = None
+        self.end = None
+        self.scores = None
         self.image = pygame.image.load(os.path.join(
             dirname, "../", "assets", "button.png"))
 
@@ -266,6 +271,7 @@ class GameLoop():
                     self.number = self.font.render(
                         str(self.grid[i][j]), 1, (0, 0, 0))
                     self.screen.blit(self.number, ((j+1)*50+15, (i+1)*50+10))
+        self.start = time.time()
         pygame.display.update()
 
     def insert(self, screen, position):
@@ -310,9 +316,21 @@ class GameLoop():
                         pygame.display.update()
                         if not self.find_empty_cell(self.grid):
                             if self.test_solution(self.grid):
-                                Ui.end_screen(self)
+                                self.end = time.time()
+                                time_lapsed = self.end - self.start
+                                self.count_scores(time_lapsed)
+                                Ui.end_screen(self, self.scores)
                         return
                     return
+
+    def count_scores(self, sec):
+        mins = sec // 60
+        sec = sec % 60
+        hours = mins // 60
+        mins = mins % 60
+        self.scores = hours*1000+100*mins+sec
+        self.scores = (round(self.scores))
+
 
     def handle_events(self):
         """Käsittelee pelitapahtumat.
