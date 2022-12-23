@@ -1,5 +1,9 @@
 
 import bisect
+import os
+
+dirname = os.path.dirname(__file__)
+scores_file = os.path.join(dirname, "../", "score.txt")
 
 class ScoreRepository:
     """Pisteisiin liittyvistä tietokantaoperaatioista vastaava luokka.
@@ -19,10 +23,12 @@ class ScoreRepository:
         Returns:
             str: kaikki pisteet
         """
-        with open("score.txt", "r") as scores:
+        with open(scores_file, "r") as scores:
             content = scores.read().splitlines()
-            content = [int (i) for i in content]
-
+            if content == []:
+                pass
+            else:
+                content = [int (i) for i in content]
         return content
 
     def add_new_score(self, score):
@@ -35,7 +41,7 @@ class ScoreRepository:
         all_scores = ScoreRepository.all_scores(self)
         bisect.insort(all_scores, self.score)
         
-        with open("score.txt", "w") as scores:
+        with open(scores_file, "w") as scores:
             for score in all_scores:
                 scores.write("%s\n" %score)
 

@@ -35,6 +35,7 @@ class GameLoop():
         self.start = None
         self.end = None
         self.scores = None
+        self.top_five = None
         self.image = pygame.image.load(os.path.join(
             dirname, "../", "assets", "button.png"))
 
@@ -271,7 +272,7 @@ class GameLoop():
                     self.number = self.font.render(
                         str(self.grid[i][j]), 1, (0, 0, 0))
                     self.screen.blit(self.number, ((j+1)*50+15, (i+1)*50+10))
-        self.start = time.time()
+        self.start_time = time.time()
         pygame.display.update()
 
     def insert(self, screen, position):
@@ -316,10 +317,11 @@ class GameLoop():
                         pygame.display.update()
                         if not self.find_empty_cell(self.grid):
                             if self.test_solution(self.grid):
-                                self.end = time.time()
-                                time_lapsed = self.end - self.start
+                                self.end_time = time.time()
+                                time_lapsed = self.end_time - self.start_time
                                 self.count_scores(time_lapsed)
-                                Ui.end_screen(self, self.scores)
+                                self.top_scores()
+                                Ui.end_screen(self, self.scores, self.top_five)
                         return
                     return
 
@@ -330,6 +332,10 @@ class GameLoop():
         mins = mins % 60
         self.scores = hours*1000+100*mins+sec
         self.scores = (round(self.scores))
+
+    def top_scores(self):
+        top_scores = ScoreRepository.add_new_score(self, self.scores)
+        self.top_five = ', '.join(top_scores)
 
 
     def handle_events(self):

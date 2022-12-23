@@ -138,7 +138,7 @@ class Ui:
 
             pygame.display.update()
 
-    def end_screen(self, score):
+    def end_screen(self, score, top_five):
         """Luo loppunäkymän, joka ilmestyy pelaajan ratkaistua sudoku oikein. Näkymästä pelaaja voi aloittaa uuden pelin tai palata aloitusvalikkoon
         """
         self.screen = pygame.display.set_mode((550, 550))
@@ -147,8 +147,8 @@ class Ui:
         self.small_font = pygame.font.SysFont('Arial', 22)
 
         self.score = score
-        top_scores = ScoreRepository.add_new_score(self, score)
-        top_five = ', '.join(top_scores)
+        self.top_five = top_five
+
 
         while True:
             self.screen.fill((250, 250, 250))
@@ -162,7 +162,7 @@ class Ui:
             top_five_scores_text = self.small_font.render("TOP 5 pistetulokset:", True, (0,0,0))
             top_five_scores_text_rect = top_five_scores_text.get_rect(center=(275, 275))
 
-            top_scores_text = self.small_font.render(f"{top_five}", True, (0,0,0))
+            top_scores_text = self.small_font.render(f"{self.top_five}", True, (0,0,0))
             top_scores_text_rect = top_scores_text.get_rect(center=(275, 310))
 
             self.screen.blit(end_screen_text, end_screen_text_rect)
