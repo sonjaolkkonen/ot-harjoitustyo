@@ -16,6 +16,10 @@ class TestSudoku(unittest.TestCase):
         
         self.assertTrue(number_in_row)
 
+        number_in_row = GameLoop.number_already_in_row(self.grid_incomplete, 1, 4)
+
+        self.assertFalse(number_in_row)
+
     def test_number_already_in_col(self):
         number_in_col = GameLoop.number_already_in_col(self.grid_complete, 1, 5)
 
@@ -30,3 +34,4 @@ class TestSudoku(unittest.TestCase):
         filled_cells = GameLoop.get_filled_cells(self.grid_complete)
 
         self.assertEqual(len(filled_cells), 81)
+
