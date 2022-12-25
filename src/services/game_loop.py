@@ -32,8 +32,8 @@ class GameLoop():
         self.grid = grid
         self.level = level
         self.buffer = None
-        self.start = None
-        self.end = None
+        self.start_time = None
+        self.end_time = None
         self.scores = None
         self.top_five = None
         self.image = pygame.image.load(os.path.join(
