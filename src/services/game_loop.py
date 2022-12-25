@@ -2,8 +2,8 @@ from random import shuffle
 import copy
 import os
 import sys
-import pygame
 import time
+import pygame
 from repositories.score_repository import ScoreRepository
 
 dirname = os.path.dirname(__file__)

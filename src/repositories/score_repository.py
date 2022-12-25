@@ -34,24 +34,24 @@ class ScoreRepository:
     def add_new_score(self, score):
         """kirjoittaa tiedostoon score.txt uuden pistetuloksen
         oikeaan järjestykseen
-        Returns: 
+        Returns:
             str: top five -pisteet.
         """
         self.score= score
         all_scores = ScoreRepository.all_scores(self)
         bisect.insort(all_scores, self.score)
-        
+
         with open(scores_file, "w") as scores:
             for score in all_scores:
                 scores.write("%s\n" %score)
 
-        
+
         top_five = [str(i) for i in all_scores]
         if len(top_five) >= 5:
             top_five = top_five[0:5]
         else:
             top_five = top_five[0:len(top_five)]
-        
+
         return top_five
 
     def delete_all(self):
@@ -60,5 +60,3 @@ class ScoreRepository:
         scores = open(scores_file, "r+")
         scores.seek(0)
         scores.truncate()
-
-
