@@ -13,4 +13,4 @@ class TestSudoku(unittest.TestCase):
     def test_number_already_in_row(self):
         number_in_row = GameLoop.number_already_in_row(self.grid, 1, 4)
         
-        self.assertFalse(number_in_row)
+        self.assertTrue(number_in_row)
