@@ -1,7 +1,7 @@
 # Vaatimusmäärittely
 ## Sovelluksen tarkoitus
 
-Sovellus on klassinen sudoku-peli, jota pelataan 9x9 ruudukossa. Sovellusta on mahdollista käyttää useampi käyttäjä, ja he voivat luoda käyttäjätunnuksen sovellukseen pistetilastojen tallentamista varten. Sovellus myös tarjoaa eri vaikeustasoja. 
+Sovellus on klassinen sudoku-peli, jota pelataan 9x9 ruudukossa. Ruudukko on jaettu vielä 3x3 aliruudukoihin. Pelin alkaessa osa ruudukon numeroista on annettu valmiiksi, ja tavoitteena on täyttää loput ruudut numeroilla 1-9 mahdollisimman nopeasti. Kukin numero saa esiintyä vain kerran sekä vaaka- että pystyrivillä. Lisäksi kukin numero saa esiintyä vain kerran jokaisessa 3x3 aliruudukossa. Sovellus myös tarjoaa eri vaikeustasoja, ja alussa annettujen numeoroiden määrä riippuu valitusta vaikeustasosta.  
 
 ## Käyttäjät
 
@@ -9,38 +9,25 @@ Sovelluksella on ainoastaan yksi käyttäjärooli eli normaali käyttäjä.
 
 ## Perusversion tarjoamat toiminnallisuudet
 
-### Sovelluksen avaaminen
-
-- Kun käyttäjä avaa sovelluksen, käyttäjä voi luoda käyttäjätunnuksen, kirjautua sisään jo olemassaolevalla käyttäjätunnuksella tai jatkaa luomatta käyttäjätunnusta. **TEHTY** Jotta pelaajan pisteet tallentuvat pistetilastoihin, tulee hänen luoda käyttäjätunnus. Mikäli pelaaja ei luo käyttäjätunnusta, siirtyy hän suoraan aloitusvalikkoon.**TEHTY**
-- Mikäli käyttäjä valitsee käyttäjätunnuksen luomisen, tulee hänen luoda käyttäjätunnus, joka ei ole vielä muilla käytössä, ja joka on 3-10 merkkiä pitkä. 
-- Käyttäjätunnuksen luomisen jälkeen käyttäjä voi kirjautua sovellukseen. Mikäli käyttäjälle oli jo luotuna käyttäjätunnus, siirtyy hän tähän kohtaan. Kirjautuminen onnistuu syöttämällä käyttäjätunnus ja salasana kirjautumislomakkeelle. Jos käyttäjää ei ole olemassa tai salasana on virheellinen, herjaa järjestelmä tästä.
-- Kirjautumisen jälkeen käyttäjä siirtyy aloitusvalikkoon. **TEHTY**
-
 ### Aloitusvalikko
 
-- Aloitusvalikossa käyttäjä voi valita haluaako aloittaa uuden pelin vai katsoa pistetilastoja. **TEHTY**
-- Mikäli käyttäjä on kirjautuneena sisään, voi hän aloitusvalikossa kirjautua ulos sovelluksesta.
-
-### Pistetilastot
-
-- Jos käyttäjä valitsee pistelistan, näytetään käyttäjälle listana top10 eniten pisteitä saanutta pelaajaa per vaikeustaso. **TEHTY NÄKYMÄ ILMAN TILASTOJA**
-- Käyttäjä näkee pistetilastosta myös omien peliensä tilastoja. Nämä tiedot näkyvät myös kirjautumattomille käyttäjille. 
-- Pistetilastosta voi palata takaisin aloitusvalikkoon. **TEHTY**
+- Sovellus avautuu aloitusvalikkoon, josta käyttäjä voi aloittaa uuden pelin.  
 
 ### Uuden pelin aloittaminen
 
-- Uutta peliä aloittaessa käyttäjä voi valita pelin vaikeustason: helppo, keskivaikea, vaikea. **TEHTY**
+- Uutta peliä aloittaessa käyttäjä voi valita pelin vaikeustason: helppo, keskivaikea, vaikea. Mitä vaikeampi taso, sitä vähemmän on annettu numeroita valmiiksi pelin alkaessa. 
 
 ### Pelinäkymä
 
-- Sovellus luo käyttäjälle pelattavaksi hänen antamansa vaikeustason mukaisen sudokun. Valmiiksi annettujen numeroiden määrä riippuu vaikeustasosta. **TEHTY**
-- Pelin aloittaminen käynnistää myös ajanoton, ja pelaamiseen kulunut aika on näkyvillä ruudulla koko pelin ajan. Ajanottoa käytetään pistetilastojen luomiseen, mitä nopeammin käyttäjä ratkaisee pelin, sitä enemmän hän saa pisteitä.
-- Pelaaja syöttää numeroita ruudukkoon, kunnes kaikissa ruuduissa on numero. **TEHTY**
-- Kun pelaaja on saanut ratkaistua ruudukon oikein, ilmoittaa sovellus tästä sekä ajanotto pysäytetään. Pelaaja näkee saamansa pisteet, ja ne talletetaan pistetaulukkoon. **TEHTY ILMAN AJANOTTOA JA PISTENÄKYMÄÄ**
-- Pelaaja voi myös lopettaa sudokun kesken ja palata aloitusvalikkoon tai aloittaa uuden pelin suoraan pelinäkymästä. 
+- Sovellus luo käyttäjälle pelattavaksi hänen antamansa vaikeustason mukaisen sudokun. Valmiiksi annettujen numeroiden määrä riippuu vaikeustasosta eli mitä vaikeampi taso, sitä vähemmän numeroita on annettu valmiiksi. 
+- Pelin aloittaminen käynnistää myös ajanoton, jota käytetään pistetilastojen luomiseen. Mitä nopeammin käyttäjä ratkaisee pelin, sitä vähemmän hän saa pisteitä. Tavoitteena on saada mahdollisimman alhaiset pisteet. 
+- Pelaaja syöttää numeroita ruudukkoon, kunnes kaikissa ruuduissa on numero.
+- Kun pelaaja on saanut ratkaistua ruudukon oikein, ilmoittaa sovellus tästä ja pelaaja näkee saamansa pisteet. Pelaajan saamat pisteet talletetaan pistetilasoihin.
+- Loppunäkymässä pelaaja näkee myös TOP 5 parhaimmat pisteet sekä hän voi aloittaa uuden pelin. 
 
 ## Jatkokehitysideat
 
+-   Ajanotto on näkyvillä pelaajalle pelin aikana. Lisäksi pelin aikana pelaajalla on mahdollisuus aloittaa uusi peli tai sama peli alusta. 
 -   Käyttäjä voi käyttää tietyn määrän vinkkejä per peli, esimerkiksi 3. Vinkki paljastaa kyseiseen ruutuun tulevan oikean numeron.
 -   Käyttäjä voi tallentaa kesken jääneen pelin ja palata seuraavalla kerralla siihen mihin jäi. 
 -   Jos käyttäjä ei saa sudokua valmiiksi, sovellus tarjoaa mahdollisuuden nähdä oikean ratkaisun.
