@@ -23,7 +23,7 @@ class ScoreRepository:
         Returns:
             str: kaikki pisteet
         """
-        with open(scores_file, "r") as scores:
+        with open(scores_file, "r", encoding="utf-8") as scores:
             content = scores.read().splitlines()
             if content == []:
                 pass
@@ -41,9 +41,9 @@ class ScoreRepository:
         all_scores = ScoreRepository.all_scores(self)
         bisect.insort(all_scores, self.score)
 
-        with open(scores_file, "w") as scores:
-            for score in all_scores:
-                scores.write("%s\n" %score)
+        with open(scores_file, "w", encoding="utf-8") as scores:
+            for player_score in all_scores:
+                scores.write("%s\n" %player_score)
 
 
         top_five = [str(i) for i in all_scores]
