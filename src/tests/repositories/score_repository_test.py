@@ -7,7 +7,7 @@ class TestScoreRepository(unittest.TestCase):
 
     def test_all_scores(self):
         ScoreRepository.add_new_score(self, self.score)
-        scores = ScoreRepository.all_scores()
+        scores = ScoreRepository.all_scores(self)
 
         self.assertEqual(len(scores), 1)
         self.assertEqual(scores[0], 10)
