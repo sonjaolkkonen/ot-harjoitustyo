@@ -22,3 +22,10 @@
 - Muokattu Buttons-luokkaa, poistettu toisteisuutta
 - Lisätty rekisteröitymis- ja kirjautumisnäkymät, joissa pelaaja voi lisätä syötteet tekstikenttiin
 - Tehty TextBox-luokka, joka vastaa tekstikentästä
+
+## Viikko 7
+- Määritetty pisteiden lasku
+- Lisätty ScoreRepository-luokka, joka vastaa pisteiden tallentamisesta ja lukemisesta tiedostosta score.txt
+- Poistettu rekisteröitymis- ja kirjautumisnäkymät, pelitilasto-näkymä sekä TextBox -luokka
+- Lisätty pelaajan saamat pisteet sekä TOP 5 -pisteet loppunäkymään
+- Lisätty testejä sek GameLoop- että ScoreRepository-luokalle 
