@@ -44,7 +44,6 @@ class GameLoop():
         self.draw_screen()
         self.draw_lines()
         self.generate_solution(self.grid)
-        print(self.grid)
         self.solution = copy.deepcopy(self.grid)
         self.remove_numbers()
         self.draw_numbers()
