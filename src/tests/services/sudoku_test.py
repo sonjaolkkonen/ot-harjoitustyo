@@ -14,3 +14,13 @@ class TestSudoku(unittest.TestCase):
         number_in_row = GameLoop.number_already_in_row(self.grid, 1, 4)
         
         self.assertTrue(number_in_row)
+
+    def test_number_already_in_col(self):
+        number_in_col = GameLoop.number_already_in_col(self.grid, 1, 5)
+
+        self.assertTrue(number_in_col)
+
+    def test_number_already_in_subgrid(self):
+        number_in_subgrid = GameLoop.number_already_in_subgrid(self.grid, 1, 1, 6)
+
+        self.assertTrue(number_in_subgrid)
