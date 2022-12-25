@@ -33,7 +33,7 @@ GameLoop-luokan vastuulla on Sudoku-ruudukon mallintaminen, luominen ja pelitila
 
 Pakkauksen *repositories* luokka ```ScoreRepository``` huolehtii tietojen tallentamisesta. Luokka tallentaa tietoa CSV-tiedostoon ja se noudattaa Repository-suunnittelumallia. 
 
-Pelaajan saamat pisteet tallennetaan oikeaan järjestykseen tiedostoon score.txt. Samaisesta tiedostosta saadaan myös TOP 5 parhaimmat pisteet loppunäkymän tilastoja varten.
+Pelaajan saamat pisteet tallennetaan oikeaan järjestykseen tiedostoon score.txt. Samaisesta tiedostosta saadaan myös TOP 5 parhaimmat pisteet loppunäkymän tilastoa varten.
 
 ## Päätoiminnallisuudet
 
