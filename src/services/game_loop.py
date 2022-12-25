@@ -44,6 +44,7 @@ class GameLoop():
         self.draw_screen()
         self.draw_lines()
         self.generate_solution(self.grid)
+        print(self.grid)
         self.solution = copy.deepcopy(self.grid)
         self.remove_numbers()
         self.draw_numbers()
@@ -53,7 +54,7 @@ class GameLoop():
     def draw_screen(self):
         """Täyttää näytön valkoisella taustavärillä.
         """
-        self.screen.fill((255, 250, 240))
+        self.screen.fill((250, 250, 250))
 
     def draw_lines(self):
         """Piirtää ruudukon ulkoviivat, 3x3 ruudukoiden viivat sekä yksittäisten ruutujen viivat.
