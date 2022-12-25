@@ -15,6 +15,7 @@ Repositorio-luokka ```ScoreRepository``` testataan TestScoreRepository-testiluok
 ### Testauskattavuus 
 
 Käyttöliittymäkerrosta lukuunottamatta sovelluksen testauksen haaraumakattavuus on 39%
+
 ![image](https://user-images.githubusercontent.com/117500758/209475944-996f7c5f-e718-4162-b6f7-8c9ac1d65961.png)
 
 Testaamatta jäi GameLoop-luokan metodit, jotka sisälsivät pygamea vaativat metodit. Myös metodit, jotka sisälsivät yhden tai useamman toisen metodin (esim. valid_location) jäivät testaamatta.
