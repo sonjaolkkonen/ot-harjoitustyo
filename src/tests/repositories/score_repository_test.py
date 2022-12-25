@@ -1,9 +1,6 @@
 import unittest
-import os
 from repositories.score_repository import ScoreRepository
 
-dirname = os.path.dirname(__file__)
-scores_file = os.path.join(dirname, "../..", "score.txt")
 
 class TestScoreRepository(unittest.TestCase):
     def setUp(self):
