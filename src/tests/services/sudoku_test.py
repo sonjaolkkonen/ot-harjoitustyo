@@ -12,7 +12,7 @@ class TestSudoku(unittest.TestCase):
         self.assertEqual(scores, 130)
 
     def test_number_already_in_row(self):
-        number_in_row = GameLoop.number_already_in_row(self.grid_complete, 1, 4)
+        number_in_row = GameLoop.number_already_in_row(self.grid_complete, 0, 4)
         
         self.assertTrue(number_in_row)
 
@@ -21,12 +21,20 @@ class TestSudoku(unittest.TestCase):
         self.assertFalse(number_in_row)
 
     def test_number_already_in_col(self):
-        number_in_col = GameLoop.number_already_in_col(self.grid_complete, 1, 5)
+        number_in_col = GameLoop.number_already_in_col(self.grid_complete, 0, 4)
 
         self.assertTrue(number_in_col)
 
+        number_in_col = GameLoop.number_already_in_col(self.grid_incomplete, 0, 4)
+
+        self.assertFalse(number_in_col)
+
     def test_number_already_in_subgrid(self):
-        number_in_subgrid = GameLoop.number_already_in_subgrid(self.grid_complete, 1, 1, 6)
+        number_in_subgrid = GameLoop.number_already_in_subgrid(self.grid_complete, 0, 0, 4)
+
+        self.assertTrue(number_in_subgrid)
+
+        number_in_subgrid = GameLoop.number_already_in_subgrid(self.grid_incomplete, 0, 0, 4)
 
         self.assertTrue(number_in_subgrid)
 
