@@ -16,7 +16,7 @@ class TestSudoku(unittest.TestCase):
         
         self.assertTrue(number_in_row)
 
-        number_in_row = GameLoop.number_already_in_row(self.grid_incomplete, 1, 4)
+        number_in_row = GameLoop.number_already_in_row(self.grid_incomplete, 0, 4)
 
         self.assertFalse(number_in_row)
 
