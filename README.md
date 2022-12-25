@@ -16,6 +16,8 @@ Sovellus on klassinen sudoku-peli, jota pelataan 9x9 ruudukossa. Ruudukko on jae
 
 [Viikko 6](https://github.com/sonjaolkkonen/ot-harjoitustyo/releases/tag/viikko6)
 
+[Loppupalautus](https://github.com/sonjaolkkonen/ot-harjoitustyo/releases/tag/loppupalautus)
+
 ## Asennus
 1. Asenna riippuvuudet komennolla:
  
