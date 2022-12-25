@@ -36,10 +36,18 @@ class TestSudoku(unittest.TestCase):
 
         number_in_subgrid = GameLoop.number_already_in_subgrid(self.grid_incomplete, 0, 0, 4)
 
-        self.assertTrue(number_in_subgrid)
+        self.assertFalse(number_in_subgrid)
 
     def test_get_filled_cells(self):
         filled_cells = GameLoop.get_filled_cells(self.grid_complete)
 
         self.assertEqual(len(filled_cells), 81)
 
+    def test_find_empty_cells(self):
+        empty_cells = GameLoop.find_empty_cell(self.grid_incomplete)
+
+        self.assertEqual(empty_cells, (0,0))
+
+        empty_cells = GameLoop.find_empty_cell(self.grid_complete)
+
+        self.assertEqual(empty_cells, None)
