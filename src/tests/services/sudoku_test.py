@@ -43,6 +43,7 @@ class TestSudoku(unittest.TestCase):
 
         self.assertEqual(len(filled_cells), 81)
 
+
     def test_find_empty_cells(self):
         empty_cells = GameLoop.find_empty_cell(self.grid_incomplete)
 
@@ -51,3 +52,10 @@ class TestSudoku(unittest.TestCase):
         empty_cells = GameLoop.find_empty_cell(self.grid_complete)
 
         self.assertEqual(empty_cells, None)
+
+    def test_valid_location(self):
+        self.number_already_in_row = GameLoop.number_already_in_row(self.grid_complete, 0, 4)
+
+        valid_location = GameLoop.valid_location(self.grid_complete, 0, 0, 4)
+
+        self.assertFalse(valid_location)
