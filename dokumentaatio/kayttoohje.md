@@ -31,7 +31,7 @@ Vaikeustason valittuaan pelajaalle aukeaa vaikeustason mukainen uusi Sudoku-peli
 
 Tavoitteena on täyttää tyhjät ruudut oikeilla numeroilla mahdollisimman nopeasti. Pelaajan saamat pisteet määräytyvät käytetyn peliajan mukaan, eli mitä vähemmän pelaaja käyttää sudokun ratkaisemiseen aikaa, sitä alhaisemmat hänen pisteet ovat. Tavoitteena on saada mahdollisimman alhaiset pisteet. 
 
-![image](https://user-images.githubusercontent.com/117500758/207294549-b432e723-8d1b-475f-bd55-24fac83d6347.png)
+![image](https://user-images.githubusercontent.com/117500758/209474753-6964353c-6ca5-49cf-a2e3-8540fcf4f994.png)
 
 ## Loppunäkymä
 
