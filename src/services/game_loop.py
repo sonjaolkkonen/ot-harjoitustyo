@@ -332,6 +332,7 @@ class GameLoop():
         mins = mins % 60
         self.scores = hours*1000+100*mins+sec
         self.scores = (round(self.scores))
+        return self.scores
 
     def top_scores(self):
         top_scores = ScoreRepository.add_new_score(self, self.scores)
