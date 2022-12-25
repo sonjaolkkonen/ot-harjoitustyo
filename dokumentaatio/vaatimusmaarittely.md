@@ -27,6 +27,7 @@ Sovelluksella on ainoastaan yksi käyttäjärooli eli normaali käyttäjä.
 
 ## Jatkokehitysideat
 
+-   Valittu ruutu korostuu taustavärillä.
 -   Ajanotto on näkyvillä pelaajalle pelin aikana. Lisäksi pelin aikana pelaajalla on mahdollisuus aloittaa uusi peli tai sama peli alusta. 
 -   Käyttäjä voi käyttää tietyn määrän vinkkejä per peli, esimerkiksi 3. Vinkki paljastaa kyseiseen ruutuun tulevan oikean numeron.
 -   Käyttäjä voi tallentaa kesken jääneen pelin ja palata seuraavalla kerralla siihen mihin jäi. 
