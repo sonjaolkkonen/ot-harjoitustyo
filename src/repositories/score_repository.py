@@ -54,4 +54,8 @@ class ScoreRepository:
         
         return top_five
 
+    def delete_all(self):
+        with open(scores_file, "r") as scores:
+            scores.truncate()
+
 

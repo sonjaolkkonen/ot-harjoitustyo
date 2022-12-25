@@ -11,8 +11,7 @@ class TestScoreRepository(unittest.TestCase):
 
     def test_all_scores(self):
 
-        with open(scores_file, "r") as scores:
-            scores.truncate()
+        ScoreRepository.delete_all(self)
 
         ScoreRepository.add_new_score(self, self.score)
         scores = ScoreRepository.all_scores(self)
