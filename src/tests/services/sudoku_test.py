@@ -2,8 +2,7 @@ import unittest
 from services.game_loop import GameLoop
 
 class TestSudoku(unittest.TestCase):
-    def setUp(self, grid):
-        self.grid = grid
+    def setUp(self):
         row = None
         col = None
         number = None
