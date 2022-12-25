@@ -55,6 +55,8 @@ class ScoreRepository:
         return top_five
 
     def delete_all(self):
+        """poistaa kaikki score.txt-tiedostossa olevat pisteet
+        """
         scores = open(scores_file, "r+")
         scores.seek(0)
         scores.truncate()
