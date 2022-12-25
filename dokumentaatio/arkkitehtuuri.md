@@ -1,7 +1,7 @@
 # Arkkitehtuurikuvaus
 
 ## Rakenne
-Ohjelman rakenne tulee noudattamaan kolmitasoista kerrosarkkitehtuuria, ja koodin pakkausrakenne on seuraava:
+Ohjelman rakenne noudattaa kolmitasoista kerrosarkkitehtuuria, ja koodin pakkausrakenne on seuraava:
 
 ![image](https://user-images.githubusercontent.com/117500758/207262820-0d906bd9-5a4a-45e5-9d0d-8a239035c2f2.png)
 
