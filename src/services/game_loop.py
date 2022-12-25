@@ -326,6 +326,14 @@ class GameLoop():
                     return
 
     def count_scores(self, sec):
+        """Laskee pelaajan saamat pisteet kuluneen peliajan perusteella.
+
+        Args:
+            sec: Pelaamiseen kuluneet sekunnit.
+
+        Returns:
+            Pelaajan saamat pisteet.
+        """
         mins = sec // 60
         sec = sec % 60
         hours = mins // 60
@@ -335,6 +343,8 @@ class GameLoop():
         return self.scores
 
     def top_scores(self):
+        """Muodostaa luettavan listan TOP 5 pisteistä pelitilastoja varten.
+        """
         top_scores = ScoreRepository.add_new_score(self, self.scores)
         self.top_five = ', '.join(top_scores)
 
