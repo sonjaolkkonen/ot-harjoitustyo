@@ -24,5 +24,8 @@
 | 12.12. | 3 | LoginView ja RegisterView -luokkien luonti |
 | 13.12. | 2 | Docstring-dokumentointi ja bugien fiksaus |
 | 13.12. | 2 | Alustava arkkitehtuurikuvaus ja käyttöohje |
-| 13.12.  0,5 | Pylint-korjaukset |
-| yht | 58 | 
+| 13.12. | 0,5 | Pylint-korjaukset |
+| 22.12. | 4 | Määritetty pisteiden lasku, lisätty ScoreRepository-luokka, poistettu rekisteröitymis- ja kirjautumisnäkymät, pelitilasto-näkymä sekä TextBox -luokka |
+| 23.12. | 2 | Lisätty pelaajan saamat pisteet sekä TOP 5 -pisteet loppunäkymään |
+| 25.12. | 5 | Lisätty testejä GameLoop- ja ScoreRepository-luokille, korjattu pylint-virheitä, muokattu dokumentaatiota (arkkitehtuurikuvaus, readme, testausdokumentti, vaatimusmäärittely, changelog, käyttöohje) 
+| yht | 67 | 
