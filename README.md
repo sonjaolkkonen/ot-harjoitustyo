@@ -1,6 +1,6 @@
 # Sudoku
 
-Sovellus on klassinen sudoku-peli, jota pelataan 9x9 ruudukossa. Sovellusta on mahdollista käyttää useampi käyttäjä, ja he voivat luoda käyttäjätunnuksen sovellukseen pistetilastojen tallentamista varten. Sovellus myös tarjoaa eri vaikeustasoja.
+Sovellus on klassinen sudoku-peli, jota pelataan 9x9 ruudukossa. Ruudukko on jaettu vielä 3x3 aliruudukoihin. Pelin alkaessa osa ruudukon numeroista on annettu valmiiksi, ja tavoitteena on täyttää loput ruudut numeroilla 1-9 mahdollisimman nopeasti. Kukin numero saa esiintyä vain kerran sekä vaaka- että pystyrivillä. Lisäksi kukin numero saa esiintyä vain kerran jokaisessa 3x3 aliruudukossa. Sovellus myös tarjoaa eri vaikeustasoja, ja alussa annettujen numeoroiden määrä riippuu valitusta vaikeustasosta.
 
 ## Dokumentaatio
 
