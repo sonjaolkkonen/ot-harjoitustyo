@@ -6,7 +6,7 @@ class TestScoreRepository(unittest.TestCase):
     def setUp(self):
         self.score = 10
         dirname = os.path.dirname(__file__)
-        self.scores_file = os.path.join(dirname, "../", "score.txt")
+        self.scores_file = os.path.join(dirname, "../..", "score.txt")
 
     def test_all_scores(self):
 
